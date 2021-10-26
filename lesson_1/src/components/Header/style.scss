@@ -1,0 +1,23 @@
+.header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: xxx-large;
+    font-weight: 800;
+    z-index: 2;
+  }
+
+  s {
+    color: #e40613;
+    font-size: x-large;
+    transform: rotate(-8deg);
+    position: absolute;
+    z-index: 1;
+    margin-left: 295px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+}

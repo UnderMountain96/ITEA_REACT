@@ -1,0 +1,15 @@
+.search-btn {
+  background: #ffdd01;
+  border: none;
+  padding: 10px;
+  line-height: 0;
+
+  &:hover, &:focus {
+    background: #ffd125;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,24 @@
+.search {
+  display: flex;
+  margin-top: 10px;
+
+  &.hide {
+    display: none;
+  }
+
+  input {
+    padding: 20px 30px;
+    width: 100%;
+    background: #ededed;
+    border: none;
+    font-size: 20px;
+
+    &:focus {
+      border-color: #94c21e;
+    }
+
+    &::placeholder {
+      color: #b5b5b5
+    }
+  }
+}
