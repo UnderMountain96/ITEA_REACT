@@ -9,7 +9,7 @@
     "test": "craco test",
     "eject": "craco eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b ghp-l1 -d build"
   },
   "eslintConfig": {
     "extends": [
