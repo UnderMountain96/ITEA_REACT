@@ -1,0 +1,19 @@
+.notification {
+  background-color: #eeeeee;
+  border: 1px solid #cbcbcb;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+  height: 300px;
+  overflow-y: scroll;
+
+  .msg {
+    margin: 5px;
+  }
+}
+
+.log-header {
+  margin: 0;
+}

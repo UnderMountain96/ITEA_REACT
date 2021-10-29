@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './style.scss'
-import Button from "@components/Button";
+import {Task1, Task2} from "@components";
 
-const Main = () => {
-    return (
-        <div className='container'>
-            <Button/>
-        </div>
-    );
-};
+class Main extends Component {
+    render() {
+        return (
+            <div className='container'>
+                {/*<Task1/>*/}
+                <Task2/>
+            </div>
+        );
+    }
+}
 
 export default Main;
