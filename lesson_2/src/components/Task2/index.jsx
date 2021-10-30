@@ -15,16 +15,11 @@ export class Task2 extends Component {
 
     changeInterviewed = (id) => {
         console.log(id)
-        const user = this.state.users.filter(user => user.id === id)
-        user.interviewed = !user.interviewed
-
-
         this.setState({
             ...this.state,
-            users: [
-                ...user,
-                ...this.state.users
-            ]
+            users: this.state.users.map(user =>
+                user.id === id ? {...user, interviewed: !user.interviewed} : user
+            )
         })
     }
 
@@ -63,13 +58,13 @@ export class Task2 extends Component {
         return (
             <>
                 <h1>Task 2</h1>
-
-                {
-                    users.map(user =>
-                        <User key={user.id} action={changeInterviewed} user={user}/>
-                    )
-                }
-
+                <div className='usersList'>
+                    {
+                        users.map(user =>
+                            <User key={user.id} action={changeInterviewed} user={user}/>
+                        )
+                    }
+                </div>
                 {error ? <div>{error.msg}</div> : <></>}
             </>
         );

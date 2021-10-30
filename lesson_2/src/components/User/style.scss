@@ -1,8 +1,14 @@
 .user {
-  background-color: #a8db20;
+  border: 2px solid #c61818;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  background-color: #ffffff;
 
   &.interviewed {
-    background-color: #c61818;
+    border: 2px solid #94c21e;
   }
 }
 
