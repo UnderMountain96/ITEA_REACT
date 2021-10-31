@@ -1,0 +1,30 @@
+.cell {
+  width: 100%;
+  padding: 10px;
+  border-right: 1px solid #000000;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:first-child {
+    width: auto;
+    min-width: 3%;
+  }
+
+  &.text {
+    text-align: left;
+  }
+
+  &.date {
+    font-style: italic;
+  }
+
+  &.number {
+    text-align: right;
+  }
+
+  &.money {
+    text-align: right;
+  }
+}

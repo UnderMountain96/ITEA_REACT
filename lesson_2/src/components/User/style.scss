@@ -1,0 +1,14 @@
+.user {
+  border: 2px solid #c61818;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  background-color: #ffffff;
+
+  &.interviewed {
+    border: 2px solid #94c21e;
+  }
+}
+
