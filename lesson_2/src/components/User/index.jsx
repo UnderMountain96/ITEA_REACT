@@ -29,7 +29,7 @@ const User = ({user, action}) => {
                         color: interviewed ? '#000000' : '#ffffff',
                         backgroundColor: interviewed ? '#94c21e' : '#c61818'}}
                     action={clickHandler}
-                    logger={msg => console.log(msg)}/><br/>
+                    logger={function() {}}/><br/>
             </div>
         </div>
     );
