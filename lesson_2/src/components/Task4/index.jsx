@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Table from "@components/Table";
 import Row from "@components/Table/Row";
 import Cell from "@components/Table/Cell";
@@ -53,8 +54,8 @@ export class Task4 extends Component {
                         </Cell>
                     </Row>
                     {
-                        data.map((row, i) => (
-                            <Row key={i}>
+                        data.map((row) => (
+                            <Row key={uuidv4()}>
                                 <Cell>
                                 </Cell>
                                 <Cell
