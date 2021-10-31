@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './style.scss'
 import Button from "@components/Button";
 import Notification from "@components/Notification";
 
@@ -24,7 +23,7 @@ export class Task1 extends Component {
         return (
             <>
                 <h1>Task 1</h1>
-                <div className='btnBar'>
+                <div>
                     <Button
                         logger={(msg) => {
                             addMassages(msg)

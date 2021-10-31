@@ -14,7 +14,6 @@ export class Task2 extends Component {
     }
 
     changeInterviewed = (id) => {
-        console.log(id)
         this.setState({
             ...this.state,
             users: this.state.users.map(user =>
@@ -26,7 +25,6 @@ export class Task2 extends Component {
     getUsers = async () => {
         try {
             const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-            console.log(response.data);
             this.setState({
                 ...this.state,
                 users: response.data.map(user => ({

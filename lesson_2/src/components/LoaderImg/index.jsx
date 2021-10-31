@@ -19,12 +19,11 @@ class LoaderImg extends Component {
         this.setState({
             ...this.state,
             timer: setTimeout(() => {
-                console.log('loading')
                 this.setState({
                     ...this.state,
                     loading: false
                 })
-            }, 1000)
+            }, 2000)
         })
     }
 
@@ -32,13 +31,12 @@ class LoaderImg extends Component {
         this.setState({
             ...this.state,
             timer: setTimeout(() => {
-                console.log('loading')
                 this.setState({
                     ...this.state,
                     loading: false,
                     imageStatus: 'failed to load'
                 })
-            }, 1000)
+            }, 2000)
         })
     }
 
