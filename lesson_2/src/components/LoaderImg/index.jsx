@@ -9,7 +9,8 @@ class LoaderImg extends Component {
 
         this.state = {
             loading: true,
-            src: `${props.src}?${new Date().getTime()}`,
+            img: new Image(),
+            src: props.src,
             title: props.title
         }
     }
@@ -42,11 +43,13 @@ class LoaderImg extends Component {
     }
 
     componentDidMount() {
-        const imageToLoad = new Image();
-        imageToLoad.src = this.state.src;
-        imageToLoad.onload = () => {
-            this.handleImageLoaded()
-        }
+        this.setState({
+            ...this.state,
+            img: {
+                ...this.state.img,
+                src: this.state.src,
+            }
+        })
     }
 
     componentWillUnmount() {
@@ -54,8 +57,8 @@ class LoaderImg extends Component {
     }
 
     render() {
-        const {loading, src, title, imageStatus} = this.state
-        const {handleImageErrored} = this
+        const {loading, title, imageStatus, img} = this.state
+        const {handleImageLoaded, handleImageErrored} = this
         return (
             <div className='loading'>
                 <h3>{title}</h3>
@@ -63,10 +66,11 @@ class LoaderImg extends Component {
                 {imageStatus
                     ? imageStatus
                     : <img
+                        onLoad={handleImageLoaded}
                         onError={handleImageErrored}
                         className='loading__img'
                         hidden={loading}
-                        src={src}
+                        src={img.src}
                         title={title}
                         alt={title}/>}
             </div>
