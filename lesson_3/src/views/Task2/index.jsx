@@ -17,11 +17,7 @@ export class Task2 extends Component {
                                 input.value = e.target.value
                             }
                         } else {
-                            if (e.target.value.length > input.contentMaxLength) {
-                                input.value = input.contentMaxLength
-                            } else {
-                                input.value = e.target.value
-                            }
+                            input.value = e.target.value
                         }
                     }
                     return input

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.scss'
-import {Task1, Task2} from "@views";
+import {Task1, Task2, Task3} from "@views";
 
 
 class Main extends Component {
@@ -8,7 +8,8 @@ class Main extends Component {
                return (
                 <div className='container'>
                     {/*<Task1/>*/}
-                    <Task2/>
+                    {/*<Task2/>*/}
+                    <Task3/>
                 </div>
         );
     }
