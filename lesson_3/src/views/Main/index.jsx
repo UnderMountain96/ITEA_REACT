@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './style.scss'
-import {Task1, Task2, Task3} from "@views";
+import {Task1, Task2, Task3, Task4, MemoizedTask4} from "@views";
 
 
 class Main extends Component {
@@ -9,7 +9,9 @@ class Main extends Component {
                 <div className='container'>
                     {/*<Task1/>*/}
                     {/*<Task2/>*/}
-                    <Task3/>
+                    {/*<Task3/>*/}
+                    <Task4/>
+                    <MemoizedTask4/>
                 </div>
         );
     }
