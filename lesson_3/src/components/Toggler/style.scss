@@ -1,0 +1,44 @@
+.toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  &__title {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    background: #cddfff;
+    font-size: 16px;
+    height: 30px;
+    border-top: 2px;
+    border-bottom: 2px;
+    border-right: 0;
+
+    border-color: black;
+    border-style: solid;
+
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+      border-right: 2px;
+      border-color: black;
+      border-style: solid;
+    }
+
+    &:hover {
+      //background: ;
+    }
+
+    &.active {
+      background: #0055ff;
+      color: #ffffff;
+    }
+
+  }
+}
