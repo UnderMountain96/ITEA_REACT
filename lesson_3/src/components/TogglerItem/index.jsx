@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from "classnames";
+import {PropTypes} from "prop-types";
 
 export const TogglerItem = ({children, value, active, action}) => {
     return (
@@ -12,4 +13,11 @@ export const TogglerItem = ({children, value, active, action}) => {
             </button>
     )
 
+}
+
+TogglerItem.propTypes = {
+    action: PropTypes.func,
+    active: PropTypes.bool,
+    value: PropTypes.string,
+    children: PropTypes.string
 }

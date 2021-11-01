@@ -32,8 +32,9 @@ export const Toggler = ({name, children, action, activeState, id}) => {
 }
 
 Toggler.propTypes = {
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     action: PropTypes.func.isRequired,
     activeState: PropTypes.string,
-    children: PropTypes.arrayOf(PropTypes.element),
+    children: PropTypes.arrayOf(PropTypes.element)
 }
