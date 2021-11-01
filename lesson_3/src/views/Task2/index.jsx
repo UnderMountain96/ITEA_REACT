@@ -10,7 +10,19 @@ export class Task2 extends Component {
                 const modState = {...this.state}
                 modState.input.data.map(input => {
                     if (input.id === id) {
-                        input.value = e.target.value
+                        if (input.type === 'number') {
+                            if (e.target.value > input.contentMaxLength) {
+                                input.value = input.contentMaxLength
+                            } else {
+                                input.value = e.target.value
+                            }
+                        } else {
+                            if (e.target.value.length > input.contentMaxLength) {
+                                input.value = input.contentMaxLength
+                            } else {
+                                input.value = e.target.value
+                            }
+                        }
                     }
                     return input
                 })

@@ -1,5 +1,6 @@
 import React from 'react';
 import {PropTypes} from "prop-types";
+import classNames from "classnames";
 import './style.scss'
 
 
@@ -11,7 +12,7 @@ export const Input = ({name, type, placeholder, value, handler, contentLength, c
                 <div className='input__label'>{name}</div>
 
                 <input
-                        className='input__field'
+                        className={classNames('input__field', {valid: value})}
                         type={type}
                         placeholder={placeholder}
                         value={value}
