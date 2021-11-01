@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './style.scss'
 import {v4 as uuidv4} from 'uuid';
 import {Toggler, TogglerItem} from "@components";
 
@@ -49,7 +48,7 @@ export class Task1 extends Component {
         const {active, data} = this.state.toggle
 
         return (
-                <div className='container'>
+                <>
                     <h1>Task 1</h1>
                     {
                         data.map(toggle =>
@@ -64,7 +63,7 @@ export class Task1 extends Component {
                                 </Toggler>
                         )
                     }
-                </div>
+                </>
         );
     }
 }

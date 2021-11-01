@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import './style.scss'
-import {Task1} from "@views/Task1";
+import {Task1, Task2} from "@views";
 
 
 class Main extends Component {
         render() {
                return (
-                <>
-                    <Task1/>
-                </>
+                <div className='container'>
+                    {/*<Task1/>*/}
+                    <Task2/>
+                </div>
         );
     }
 }
