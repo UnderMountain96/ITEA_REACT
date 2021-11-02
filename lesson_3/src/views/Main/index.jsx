@@ -7,9 +7,9 @@ class Main extends Component {
         render() {
                return (
                 <div className='container'>
-                    {/*<Task1/>*/}
-                    {/*<Task2/>*/}
-                    {/*<Task3/>*/}
+                    <Task1/>
+                    <Task2/>
+                    <Task3/>
                     <Task4/>
                 </div>
         );

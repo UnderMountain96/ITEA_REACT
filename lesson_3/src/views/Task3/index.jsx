@@ -7,106 +7,106 @@ import './style.scss'
 export class Task3 extends Component {
     state = {
         input: {
-            handler: id => e => {
-                const modState = {...this.state}
-                Object.values(modState.input.data).map(input => {
-                    if (input.id === id) {
-                        if (input.type === 'number') {
-                            if (e.target.value > input.contentMaxLength) {
-                                input.value = input.contentMaxLength
-                            } else {
-                                input.value = e.target.value
-                            }
-                        } else {
-                            input.value = e.target.value
-                        }
-                    }
-                    return input
-                })
-                this.setState({modState})
+            name: {
+                id: uuidv4(),
+                name: 'Name',
+                type: 'text',
+                placeholder: 'Name',
+                value: '',
+                contentLength: true,
+                contentMaxLength: 20,
             },
-            data: {
-                name: {
-                    id: uuidv4(),
-                    name: 'Name',
-                    type: 'text',
-                    placeholder: 'Name',
-                    value: '',
-                    contentLength: true,
-                    contentMaxLength: 20,
-                },
-                password: {
-                    id: uuidv4(),
-                    name: 'Password',
-                    type: 'password',
-                    placeholder: 'Password',
-                    value: '',
-                    contentLength: true,
-                    contentMaxLength: 20,
-                },
-                year: {
-                    id: uuidv4(),
-                    name: '',
-                    type: 'number',
-                    placeholder: 'Year',
-                    value: '',
-                    contentLength: false,
-                    contentMaxLength: new Date().getFullYear(),
-                },
-                month: {
-                    id: uuidv4(),
-                    name: '',
-                    type: 'number',
-                    placeholder: 'Month',
-                    value: '',
-                    contentLength: false,
-                    contentMaxLength: 12,
-                },
-                day: {
-                    id: uuidv4(),
-                    name: '',
-                    type: 'number',
-                    placeholder: 'Day',
-                    value: '',
-                    contentLength: false,
-                    contentMaxLength: 31,
-                },
-                language: {
-                    id: uuidv4(),
-                    name: 'Language',
-                    type: 'text',
-                    placeholder: 'Language',
-                    value: '',
-                    contentLength: false,
-                    contentMaxLength: 20,
-                }
+            password: {
+                id: uuidv4(),
+                name: 'Password',
+                type: 'password',
+                placeholder: 'Password',
+                value: '',
+                contentLength: true,
+                contentMaxLength: 20,
+            },
+            year: {
+                id: uuidv4(),
+                name: '',
+                type: 'number',
+                placeholder: 'Year',
+                value: '',
+                contentLength: false,
+                contentMaxLength: new Date().getFullYear(),
+            },
+            month: {
+                id: uuidv4(),
+                name: '',
+                type: 'number',
+                placeholder: 'Month',
+                value: '',
+                contentLength: false,
+                contentMaxLength: 12,
+            },
+            day: {
+                id: uuidv4(),
+                name: '',
+                type: 'number',
+                placeholder: 'Day',
+                value: '',
+                contentLength: false,
+                contentMaxLength: 31,
+            },
+            language: {
+                id: uuidv4(),
+                name: 'Language',
+                type: 'text',
+                placeholder: 'Language',
+                value: '',
+                contentLength: false,
+                contentMaxLength: 20,
             }
+
         },
         toggle: {
-            active: ({value, id}) => _ => {
-                const modState = {...this.state}
-                Object.values(modState.toggle.data).map(toggle => {
-                    if (toggle.id === id) toggle.activeState = value;
-                    return toggle
-                })
-                this.setState({modState})
+            gender: {
+                id: uuidv4(),
+                activeState: 'Male',
+                name: 'gender',
+                items: ['Male', 'Female'],
             },
-            data: {
-                gender: {
-                    id: uuidv4(),
-                    activeState: 'Male',
-                    name: 'gender',
-                    items: ['Male', 'Female'],
-                },
-                layout: {
-                    id: uuidv4(),
-                    activeState: 'Center',
-                    name: 'layout',
-                    items: ['Left', 'Center', 'Right', 'Baseline'],
-                }
+            layout: {
+                id: uuidv4(),
+                activeState: 'Center',
+                name: 'layout',
+                items: ['Left', 'Center', 'Right', 'Baseline'],
             }
         }
     }
+
+    handler = id => e => {
+        const modState = {...this.state}
+        Object.values(modState.input).map(input => {
+            if (input.id === id) {
+                if (input.type === 'number') {
+                    if (e.target.value > input.contentMaxLength) {
+                        input.value = input.contentMaxLength
+                    } else {
+                        input.value = e.target.value
+                    }
+                } else {
+                    input.value = e.target.value
+                }
+            }
+            return input
+        })
+        this.setState({modState})
+    }
+
+    active = ({value, id}) => _ => {
+        const modState = {...this.state}
+        Object.values(modState.toggle).map(toggle => {
+            if (toggle.id === id) toggle.activeState = value;
+            return toggle
+        })
+        this.setState({modState})
+    }
+
 
     submitHandler = (e) => {
         e.preventDefault()
@@ -126,15 +126,14 @@ export class Task3 extends Component {
     }
 
     render() {
-        const {handler} = this.state.input
-        const {active} = this.state.toggle
-        const {gender, layout} = this.state.toggle.data
-        const {name, password, year, month, day, language} = this.state.input.data
+        const {handler, active, submitHandler} = this
+        const {gender, layout} = this.state.toggle
+        const {name, password, year, month, day, language} = this.state.input
 
         return (
                 <>
                     <h1>Task 3</h1>
-                    <form className='from' onSubmit={this.submitHandler}>
+                    <form className='from' onSubmit={submitHandler}>
                         <Input
                                 key={name.id}
                                 name={name.name}

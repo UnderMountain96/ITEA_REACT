@@ -5,8 +5,6 @@ import './style.scss'
 
 
 export const Input = ({name, type, placeholder, value, handler, contentLength, contentMaxLength}) => {
-
-
     return (
             <label className='input'>
                 <div className='input__label'>{name}</div>

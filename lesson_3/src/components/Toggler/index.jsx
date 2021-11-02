@@ -28,7 +28,6 @@ export const Toggler = ({name, children, action, activeState, id}) => {
                 </div>
             </div>
     )
-
 }
 
 Toggler.propTypes = {

@@ -37,7 +37,6 @@ export class Task2 extends Component {
         } catch (error) {
             console.error(error);
             this.setState({
-                ...this.state,
                 error: {
                     status: error.response.status,
                     msg: 'not found'

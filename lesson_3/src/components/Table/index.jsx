@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss'
 
 
-export const Table = React.memo(({children}) => {
+export const Table = ({children}) => {
     return (
         <div className='table'>
             {React.Children.map(children, child => {
@@ -10,4 +10,4 @@ export const Table = React.memo(({children}) => {
             })}
         </div>
     );
-});
+};

@@ -4,25 +4,19 @@ import './style.scss';
 
 
 class Search extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            search: ''
-        }
-    }
-
     changeHandler = (e) => {
-        this.setState({search: e.target.value})
-        this.props.onSearch(e.target.value)
+        const {value} = e.target;
+        this.setState({search: value})
+        this.props.onSearch(value)
     }
 
     render() {
-        const search = this.state.search
+        const {search} = this.props
         return (
-            <div className={classNames('search', {'hide': this.props.hide})}>
-                <input onChange={this.changeHandler} value={search} placeholder='Введите имя гостя для поиска'
-                       type="text"/>
-            </div>
+                <div className={classNames('search', {'hide': this.props.hide})}>
+                    <input onChange={this.changeHandler} value={search} placeholder='Введите имя гостя для поиска'
+                           type="text"/>
+                </div>
         );
     }
 }

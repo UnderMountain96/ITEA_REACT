@@ -5,47 +5,47 @@ import {Toggler, TogglerItem} from "@components";
 
 export class Task1 extends Component {
     state = {
-        toggle: {
-            active: ({value, id}) => _ => {
-                const modState = {...this.state}
-                modState.toggle.data.map(toggle => {
-                    if (toggle.id === id) toggle.activeState = value;
-                    return toggle
-                })
-                this.setState({modState})
+        data: [
+            {
+                id: uuidv4(),
+                activeState: 'Male',
+                name: 'gender',
+                items: ['Male', 'Female'],
             },
-            data: [
-                {
-                    id: uuidv4(),
-                    activeState: 'Male',
-                    name: 'gender',
-                    items: ['Male', 'Female'],
-                },
-                {
-                    id: uuidv4(),
-                    activeState: 'Center',
-                    name: 'layout',
-                    items: ['Left', 'Center', 'Right', 'Baseline'],
-                },
-                {
-                    id: uuidv4(),
-                    activeState: 'Dwarf',
-                    name: 'race',
-                    items: ['Human', 'Dwarf', 'Elf', 'Orc', 'Goblin'],
-                },
-                {
-                    id: uuidv4(),
-                    activeState: 'Hunter',
-                    name: 'class',
-                    items: ['Warrior', 'Hunter', 'Rogue', 'Mage'],
+            {
+                id: uuidv4(),
+                activeState: 'Center',
+                name: 'layout',
+                items: ['Left', 'Center', 'Right', 'Baseline'],
+            },
+            {
+                id: uuidv4(),
+                activeState: 'Dwarf',
+                name: 'race',
+                items: ['Human', 'Dwarf', 'Elf', 'Orc', 'Goblin'],
+            },
+            {
+                id: uuidv4(),
+                activeState: 'Hunter',
+                name: 'class',
+                items: ['Warrior', 'Hunter', 'Rogue', 'Mage'],
 
-                }
-            ]
-        }
+            }
+        ]
+    }
+
+    active = ({value, id}) => _ => {
+        const modState = {...this.state}
+        modState.data.map(toggle => {
+            if (toggle.id === id) toggle.activeState = value;
+            return toggle
+        })
+        this.setState({modState})
     }
 
     render() {
-        const {active, data} = this.state.toggle
+        const {data} = this.state
+        const {active} = this
 
         return (
                 <>
