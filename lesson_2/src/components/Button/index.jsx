@@ -1,24 +1,22 @@
 import React from 'react';
 import './style.scss'
 import PropTypes from "prop-types";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
-const Button = ({text, style, action, logger}) => {
+const Button = ({text, style, action}) => {
 
     const clickHandler = () => {
-        action()
-        logger(
-            {
-                id: uuidv4(),
-                text: `click on ${text}`,
-                color: style.backgroundColor
-            })
+        action({
+            id: uuidv4(),
+            text: `click on ${text}`,
+            color: style.backgroundColor
+        })
     }
 
     return (
-        <button style={style} onClick={clickHandler}>
-            {text}
-        </button>
+            <button style={style} onClick={clickHandler}>
+                {text}
+            </button>
     );
 };
 
@@ -31,7 +29,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-  logger: PropTypes.func
+    logger: PropTypes.func
 };
 
 

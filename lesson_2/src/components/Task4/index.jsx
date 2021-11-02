@@ -59,19 +59,16 @@ export class Task4 extends Component {
                                 <Cell>
                                 </Cell>
                                 <Cell
-                                    color='blueviolet'
                                     type='date'
                                 >
                                     {row.date}
                                 </Cell>
                                 <Cell
-                                    color='blue'
                                     type='number'
                                 >
                                     {row.number}
                                 </Cell>
                                 <Cell
-                                    color='green'
                                     type='money'
                                     currency={row.money.currency}
                                 >
