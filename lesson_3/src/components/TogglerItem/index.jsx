@@ -12,7 +12,6 @@ export const TogglerItem = ({children, value, active, action}) => {
                 {children || value}
             </button>
     )
-
 }
 
 TogglerItem.propTypes = {
