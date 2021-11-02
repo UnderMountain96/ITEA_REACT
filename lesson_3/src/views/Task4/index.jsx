@@ -3,30 +3,26 @@ import {v4 as uuidv4} from 'uuid';
 import {Table, Row, Cell} from "@components";
 
 
-// const data_array = Array.from({ length: 10000 },
-//     () => ({
-//         id: uniqid(),
-//         name: Math.floor( Math.random() * 100 )
-//     })
-// )
+const data_array = ({row, cell}) => {
+    return Array.from({length: row},
+            () => ({
+                id: uuidv4(),
+                row: Array.from({length: cell},
+                        () => ({
+                            id: uuidv4(),
+                            value: Math.floor(Math.random() * 10)
+                        }))
+            })
+    )
+}
 
 
 export class Task4 extends Component {
     state = {
-        table: [
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-            [{id: uuidv4(), value: '1'}, {id: uuidv4(), value: '2'}, {id: uuidv4(), value: '3'}],
-        ],
+        table: data_array({row: 50, cell: 50}),
         handler: ({row, cell}) => e => {
             const clone = {...this.state}
-            clone.table[row][cell].value = e.target.value
+            clone.table[row].row[cell].value = e.target.value
             this.setState({clone})
         }
     }
@@ -38,8 +34,8 @@ export class Task4 extends Component {
                     <h1>Task 4</h1>
                     <Table>
                         {table.map((row, ri) => (
-                                <Row key={uuidv4()}>
-                                    {row.map((cell, ci) => (
+                                <Row key={row.id}>
+                                    {row.row.map((cell, ci) => (
                                             <Cell key={cell.id} handler={
                                                 handler({
                                                             row: ri,
@@ -56,5 +52,3 @@ export class Task4 extends Component {
         );
     }
 }
-
-export const MemoizedTask4 = React.memo(Task4);

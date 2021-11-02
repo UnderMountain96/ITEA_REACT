@@ -7,11 +7,13 @@
   }
 
   &__input {
+    font-size: xx-small;
+    text-align: center;
     padding: 0;
     outline: none;
     border: none;
     width: inherit;
-    height: 20px;
+    height: 30px;
 
     &:hover {
       background-color: #b3b3b3;
