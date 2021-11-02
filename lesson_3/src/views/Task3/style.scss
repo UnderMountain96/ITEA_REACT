@@ -1,0 +1,52 @@
+.date {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+
+  &__label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__input {
+    display: flex;
+    width: inherit;
+  }
+
+  input {
+    width: 100%;;
+  }
+
+  .input {
+    width: inherit;
+    padding: 10px 10px 10px 0;
+
+    &:last-of-type {
+      padding: 10px 0 10px 0;
+    }
+  }
+}
+
+.submit {
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  background: blue;
+  color: white;
+  text-transform: uppercase;
+  width: inherit;
+
+  &:hover {
+    background: #2e2eff;
+  }
+
+  &:active {
+    background: #0000c4;
+  }
+
+}
+
+.from {
+  display: contents;
+  width: 300px;
+}
