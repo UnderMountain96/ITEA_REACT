@@ -4,19 +4,12 @@ import './style.scss';
 
 
 class Guest extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            guest: props.guest
-        }
-    }
-
     clickHandler = (e) => {
         this.props.onArrived(e.target.dataset._id)
     }
 
     render() {
-        const guest = this.state.guest
+        const {guest} = this.props
         return (
             <div className='guest'>
                 <div className='guest__info'>
