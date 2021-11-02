@@ -10,7 +10,7 @@ class Main extends Component {
                     <Task1/>
                     <Task2/>
                     <Task3/>
-                    {/*<Task4/>*/}
+                    <Task4/>
                 </div>
         );
     }
