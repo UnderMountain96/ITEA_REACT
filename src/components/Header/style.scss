@@ -10,7 +10,12 @@
       text-decoration: none;
       padding: 10px;
       font-size: 24px;
-      color: white;
+      color: #2d333b;
+      font-weight: bold;
+
+      &:hover {
+        color: #ffffff
+      }
     }
   }
 
@@ -30,12 +35,12 @@
     &__item {
       &__link {
         text-decoration: none;
-        color: white;
-        font-size: 22px;
+        color: #cdd9e5;
+        font-size: 20px;
         padding: 15px 10px;
 
         &:hover {
-          color: #c8c8c8
+          color: #cdd9e5b3
         }
       }
     }

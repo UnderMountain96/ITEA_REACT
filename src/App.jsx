@@ -8,7 +8,7 @@ import {Main as Lesson3} from "@lesson_3/views/Main";
 class App extends Component {
     render() {
         return (
-                <Router>
+                <Router basename='/ITEA_REACT'>
                     <Header/>
 
                     <Switch>

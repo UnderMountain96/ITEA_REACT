@@ -6,9 +6,9 @@
 
 |Lesson|Homework|Link|
 | :---: | :---: | :---: |
-|1|done|[lesson 1](https://github.com/UnderMountain96/ITEA_REACT/tree/master/lesson_1)|
-|2|done|[lesson 2](https://github.com/UnderMountain96/ITEA_REACT/tree/master/lesson_2)|
-|3|done|[lesson 3](https://github.com/UnderMountain96/ITEA_REACT/tree/master/lesson_3)|
+|1|done|[lesson 1](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_1)|
+|2|done|[lesson 2](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_2)|
+|3|done|[lesson 3](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_3)|
 |4|||
 |5|||
 |6|||
