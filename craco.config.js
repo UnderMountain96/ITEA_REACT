@@ -9,10 +9,5 @@ module.exports = {
                 source: 'jsconfig',
             }
         }
-    ],
-    style: {
-        postcss: {
-            plugins: [require("tailwindcss"), require("autoprefixer")],
-        },
-    },
+    ]
 };
