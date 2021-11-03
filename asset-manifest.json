@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITEA_REACT/static/css/main.8bddcc63.chunk.css",
-    "main.js": "/ITEA_REACT/static/js/main.dfdd3af8.chunk.js",
-    "main.js.map": "/ITEA_REACT/static/js/main.dfdd3af8.chunk.js.map",
+    "main.css": "/ITEA_REACT/static/css/main.8a2bc298.chunk.css",
+    "main.js": "/ITEA_REACT/static/js/main.b9b2ad8b.chunk.js",
+    "main.js.map": "/ITEA_REACT/static/js/main.b9b2ad8b.chunk.js.map",
     "runtime-main.js": "/ITEA_REACT/static/js/runtime-main.8192b0a7.js",
     "runtime-main.js.map": "/ITEA_REACT/static/js/runtime-main.8192b0a7.js.map",
     "static/css/2.0a680f46.chunk.css": "/ITEA_REACT/static/css/2.0a680f46.chunk.css",
@@ -10,9 +10,9 @@
     "static/js/2.39b8f48b.chunk.js.map": "/ITEA_REACT/static/js/2.39b8f48b.chunk.js.map",
     "index.html": "/ITEA_REACT/index.html",
     "static/css/2.0a680f46.chunk.css.map": "/ITEA_REACT/static/css/2.0a680f46.chunk.css.map",
-    "static/css/main.8bddcc63.chunk.css.map": "/ITEA_REACT/static/css/main.8bddcc63.chunk.css.map",
+    "static/css/main.8a2bc298.chunk.css.map": "/ITEA_REACT/static/css/main.8a2bc298.chunk.css.map",
     "static/js/2.39b8f48b.chunk.js.LICENSE.txt": "/ITEA_REACT/static/js/2.39b8f48b.chunk.js.LICENSE.txt",
-    "static/media/README.md": "/ITEA_REACT/static/media/README.790bdd91.md",
+    "static/media/README.md": "/ITEA_REACT/static/media/README.5fbf93f7.md",
     "static/media/puff.217747c8.svg": "/ITEA_REACT/static/media/puff.217747c8.svg",
     "static/media/search.09b18ecb.svg": "/ITEA_REACT/static/media/search.09b18ecb.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.8192b0a7.js",
     "static/css/2.0a680f46.chunk.css",
     "static/js/2.39b8f48b.chunk.js",
-    "static/css/main.8bddcc63.chunk.css",
-    "static/js/main.dfdd3af8.chunk.js"
+    "static/css/main.8a2bc298.chunk.css",
+    "static/js/main.b9b2ad8b.chunk.js"
   ]
 }
