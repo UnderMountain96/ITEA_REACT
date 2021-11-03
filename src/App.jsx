@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {HashRouter, Switch, Route, Redirect} from "react-router-dom";
 import {Header, Home} from "@components";
 import {Main as Lesson1} from "@lesson_1/views/Main";
 import {Main as Lesson2} from "@lesson_2/views/Main";
@@ -8,7 +8,7 @@ import {Main as Lesson3} from "@lesson_3/views/Main";
 class App extends Component {
     render() {
         return (
-                <Router basename='/ITEA_REACT'>
+                <HashRouter>
                     <Header/>
 
                     <Switch>
@@ -28,7 +28,7 @@ class App extends Component {
                             <Redirect to="/" />
                         </Route>
                     </Switch>
-                </Router>
+                </HashRouter>
         );
     }
 }
