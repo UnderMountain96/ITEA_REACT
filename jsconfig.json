@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components": [
+        "./components"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@lesson_1/*": [
+        "./lessons/lesson_1/*"
+      ],
+      "@lesson_2/*": [
+        "./lessons/lesson_2/*"
+      ],
+      "@lesson_3/*": [
+        "./lessons/lesson_3/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
