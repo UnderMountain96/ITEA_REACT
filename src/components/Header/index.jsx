@@ -33,6 +33,11 @@ export const Header = () => {
                             Lesson 3
                         </Link>
                     </li>
+                    <li className='header__list__item'>
+                        <Link className='header__list__item__link' to="/lesson/4">
+                            Lesson 4
+                        </Link>
+                    </li>
                 </ul>
             </nav>
     );

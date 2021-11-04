@@ -16,6 +16,9 @@
       ],
       "@lesson_3/*": [
         "./lessons/lesson_3/*"
+      ],
+      "@lesson_4/*": [
+        "./lessons/lesson_4/*"
       ]
     }
   },
