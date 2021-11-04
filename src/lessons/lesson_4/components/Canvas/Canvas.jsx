@@ -13,13 +13,18 @@ export class Canvas extends Component {
         const {data, chartName, type} = this.state
         const ctx = this.chartRef.current.getContext('2d');
         this.setState({
-            labelsLength: data.labels.length
+            labelsLength: data.labels.length,
+            defaultLabels: data.labels
         })
         this.chart = new Chart(ctx, {
             type,
             data,
             options: {
-                elements: {line: {tension: 0.4}},
+                elements: {
+                    line: {
+                        tension: 0.4
+                    }
+                },
                 responsive: true,
                 plugins: {
                     legend: {
@@ -51,6 +56,7 @@ export class Canvas extends Component {
     }
 
     randomizeData = () => {
+        this.stop()
         const {count} = this.state
         this.chart.data.datasets.length = 0
 
@@ -60,7 +66,6 @@ export class Canvas extends Component {
     }
 
     generateLine = (data) => {
-        console.log(data)
         const {randomizeCountry, randomizeColor} = this
         const color = randomizeColor()
 
@@ -98,15 +103,21 @@ export class Canvas extends Component {
                                     labels.push(labels[labels.length - labelsLength])
                                 }
                             } else {
-                                line.data.shift()
-                                labels.push(labels.shift())
+                                if (labelsTypes === 'number') {
+                                    line.data.shift()
+                                    labels.shift()
+                                    labels.push(labels[labels.length - 1] + labelsStep)
+                                } else if (labelsTypes === 'string') {
+                                    line.data.shift()
+                                    labels.push(labels.shift())
+                                }
                             }
                         }
                         return line
                     })
                     this.chart.update();
                 },
-                this.state.speed
+                this.state.interval
         );
     }
 
@@ -120,15 +131,15 @@ export class Canvas extends Component {
         })
         this.generateLine(
                 Array.from(
-                        {length: this.state.data.labels.length - 1},
+                        {length: this.chart.data.datasets[0].data.length},
                         () => 0
                 )
         )
     }
 
-    speedHandler = (e) => {
+    intervalHandler = (e) => {
         this.setState({
-            speed: e.target.value
+            interval: e.target.value
         })
         this.refresh()
     }
@@ -140,14 +151,24 @@ export class Canvas extends Component {
         })
     }
 
+    resetData = () => {
+        console.log(this.state.defaultLabels)
+        this.stop()
+        this.setState({count: 1})
+        this.chart.data.labels = this.state.defaultLabels
+        this.chart.data.datasets.length = 1
+        this.chart.data.datasets[0].data = [0]
+        this.chart.update()
+    }
+
     refresh = () => {
         this.stop()
         this.start()
     }
 
     render() {
-        const {inputHandler, speedHandler, randomizeData, chartRef, start, stop, dynamicsHandler} = this
-        const {count, speed, dynamics} = this.state
+        const {inputHandler, intervalHandler, randomizeData, chartRef, start, stop, dynamicsHandler, resetData} = this
+        const {count, interval, dynamics} = this.state
         return (
                 <div>
                     <canvas ref={chartRef} width={800} hidden={800}>
@@ -155,8 +176,12 @@ export class Canvas extends Component {
                     <div>
                         <label>
                             Number of lines
-                            <input onChange={inputHandler} min={0} value={count} type="number"/>
+                            <input onChange={inputHandler} min={count} value={count} type="number"/>
                         </label>
+
+                        <button type="button" onClick={resetData}>
+                            Reset
+                        </button>
 
                         <button type="button" onClick={randomizeData}>
                             Randomize Data
@@ -171,8 +196,8 @@ export class Canvas extends Component {
                         </button>
 
                         <label>
-                            Speed
-                            <input onChange={speedHandler} min={500} value={speed} step={100} type="number"/>
+                            Interval
+                            <input onChange={intervalHandler} min={500} value={interval} step={500} type="number"/>
                         </label>
 
                         <button type="button" onClick={dynamicsHandler}>
@@ -200,6 +225,7 @@ Canvas.propTypes = {
         'number',
         'string',
     ]),
+    defaultLabels: PropTypes.array,
     labelsLength: PropTypes.number,
     labelsStep: PropTypes.number,
     count: PropTypes.number,
@@ -208,12 +234,16 @@ Canvas.propTypes = {
             PropTypes.string
     ),
     data: PropTypes.shape({
-        labels: PropTypes.array,
-        datasets: PropTypes.shape({
-            data: PropTypes.arrayOf(PropTypes.number)
-        })
-    }),
-    speed: PropTypes.number
+                labels: PropTypes.array,
+                datasets: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            data: PropTypes.arrayOf(PropTypes.number),
+                            label: PropTypes.string
+                        })
+                )
+            }
+    ),
+    interval: PropTypes.number
 }
 
 Canvas.defaultProps = {
@@ -226,10 +256,13 @@ Canvas.defaultProps = {
     labelsLength: 0,
     labelsStep: 10,
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-            data: [0, 17, 41, 19, 20, 19, 95]
+            data: [0, 17, 41, 19, 20, 19, 95, 81],
+            label: 'LineName',
+            borderColor: 'blue',
+            backgroundColor: 'blue'
         }]
     },
-    speed: 500
+    interval: 500
 }
