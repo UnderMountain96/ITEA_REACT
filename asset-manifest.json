@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/ITEA_REACT/static/css/main.ce96ec89.chunk.css",
-    "main.js": "/ITEA_REACT/static/js/main.c7247a57.chunk.js",
-    "main.js.map": "/ITEA_REACT/static/js/main.c7247a57.chunk.js.map",
+    "main.css": "/ITEA_REACT/static/css/main.93373c04.chunk.css",
+    "main.js": "/ITEA_REACT/static/js/main.bf47fab8.chunk.js",
+    "main.js.map": "/ITEA_REACT/static/js/main.bf47fab8.chunk.js.map",
     "runtime-main.js": "/ITEA_REACT/static/js/runtime-main.8192b0a7.js",
     "runtime-main.js.map": "/ITEA_REACT/static/js/runtime-main.8192b0a7.js.map",
     "static/css/2.0a680f46.chunk.css": "/ITEA_REACT/static/css/2.0a680f46.chunk.css",
-    "static/js/2.18bed7c3.chunk.js": "/ITEA_REACT/static/js/2.18bed7c3.chunk.js",
-    "static/js/2.18bed7c3.chunk.js.map": "/ITEA_REACT/static/js/2.18bed7c3.chunk.js.map",
+    "static/js/2.812e3ef9.chunk.js": "/ITEA_REACT/static/js/2.812e3ef9.chunk.js",
+    "static/js/2.812e3ef9.chunk.js.map": "/ITEA_REACT/static/js/2.812e3ef9.chunk.js.map",
     "index.html": "/ITEA_REACT/index.html",
     "static/css/2.0a680f46.chunk.css.map": "/ITEA_REACT/static/css/2.0a680f46.chunk.css.map",
-    "static/css/main.ce96ec89.chunk.css.map": "/ITEA_REACT/static/css/main.ce96ec89.chunk.css.map",
-    "static/js/2.18bed7c3.chunk.js.LICENSE.txt": "/ITEA_REACT/static/js/2.18bed7c3.chunk.js.LICENSE.txt",
-    "static/media/README.md": "/ITEA_REACT/static/media/README.5fbf93f7.md",
-    "static/media/puff.58347f70.svg": "/ITEA_REACT/static/media/puff.58347f70.svg",
-    "static/media/search.d97ba9ca.svg": "/ITEA_REACT/static/media/search.d97ba9ca.svg"
+    "static/css/main.93373c04.chunk.css.map": "/ITEA_REACT/static/css/main.93373c04.chunk.css.map",
+    "static/js/2.812e3ef9.chunk.js.LICENSE.txt": "/ITEA_REACT/static/js/2.812e3ef9.chunk.js.LICENSE.txt",
+    "static/media/README.md": "/ITEA_REACT/static/media/README.b5d7e522.md",
+    "static/media/puff.217747c8.svg": "/ITEA_REACT/static/media/puff.217747c8.svg",
+    "static/media/search.09b18ecb.svg": "/ITEA_REACT/static/media/search.09b18ecb.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.8192b0a7.js",
     "static/css/2.0a680f46.chunk.css",
-    "static/js/2.18bed7c3.chunk.js",
-    "static/css/main.ce96ec89.chunk.css",
-    "static/js/main.c7247a57.chunk.js"
+    "static/js/2.812e3ef9.chunk.js",
+    "static/css/main.93373c04.chunk.css",
+    "static/js/main.bf47fab8.chunk.js"
   ]
 }
