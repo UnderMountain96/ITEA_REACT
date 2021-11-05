@@ -1,6 +1,8 @@
 import React, {Component, createRef} from 'react';
 import Chart from 'chart.js/auto';
 import {PropTypes} from "prop-types";
+import classNames from "classnames";
+import './Canvas.scss'
 
 
 export class Canvas extends Component {
@@ -10,11 +12,11 @@ export class Canvas extends Component {
     chartRef = createRef()
 
     componentDidMount() {
-        const {data, chartName, type} = this.state
+        const {data, chartName, type, run} = this.state
         const ctx = this.chartRef.current.getContext('2d');
         this.setState({
             labelsLength: data.labels.length,
-            defaultLabels: data.labels
+            defaultLabels: [...data.labels]
         })
         this.chart = new Chart(ctx, {
             type,
@@ -32,12 +34,14 @@ export class Canvas extends Component {
                     },
                     title: {
                         display: true,
-                        text: chartName
+                        text: chartName,
+                        color: '#000000',
                     }
                 }
             },
         });
         this.randomizeData()
+        if (run) this.start()
     }
 
     componentWillUnmount() {
@@ -89,14 +93,14 @@ export class Canvas extends Component {
         this.timer = setInterval(
                 () => {
                     const {datasets, labels} = this.chart.data
-                    const {dynamics, labelsTypes, labelsLength, labelsStep} = this.state
+                    const {dynamic, labelsTypes, labelsLength, labelsStep} = this.state
                     datasets.map(line => {
                         let inc = line.data[line.data.length - 1] + this.getRandomInt(-5, 10);
                         if (inc < 0) inc = 0
                         line.data.push(inc)
 
                         if (line.data.length >= labels.length) {
-                            if (dynamics) {
+                            if (!dynamic) {
                                 if (labelsTypes === 'number') {
                                     labels.push(labels[labels.length - 1] + labelsStep)
                                 } else if (labelsTypes === 'string') {
@@ -117,12 +121,17 @@ export class Canvas extends Component {
                     })
                     this.chart.update();
                 },
-                this.state.interval
-        );
+                this.state.interval);
+        this.setState({
+            run: true
+        })
     }
 
     stop = () => {
         clearInterval(this.timer)
+        this.setState({
+            run: false
+        })
     }
 
     inputHandler = (e) => {
@@ -138,24 +147,23 @@ export class Canvas extends Component {
     }
 
     intervalHandler = (e) => {
+        this.stop()
         this.setState({
             interval: e.target.value
         })
-        this.refresh()
     }
 
-    dynamicsHandler = () => {
-        const {dynamics} = this.state
+    dynamicHandler = () => {
+        const {dynamic} = this.state
         this.setState({
-            dynamics: !dynamics
+            dynamic: !dynamic
         })
     }
 
     resetData = () => {
-        console.log(this.state.defaultLabels)
         this.stop()
         this.setState({count: 1})
-        this.chart.data.labels = this.state.defaultLabels
+        this.chart.data.labels = [...this.state.defaultLabels]
         this.chart.data.datasets.length = 1
         this.chart.data.datasets[0].data = [0]
         this.chart.update()
@@ -167,41 +175,46 @@ export class Canvas extends Component {
     }
 
     render() {
-        const {inputHandler, intervalHandler, randomizeData, chartRef, start, stop, dynamicsHandler, resetData} = this
-        const {count, interval, dynamics} = this.state
+        const {inputHandler, intervalHandler, randomizeData, chartRef, start, stop, dynamicHandler, resetData} = this
+        const {count, interval, dynamic, run} = this.state
         return (
-                <div>
+                <div className='chart__container'>
+                    <div className={classNames('chart__indicator', run ? 'run' : 'stop')}>
+                        {run ? 'RUN' : 'STOP'}
+                    </div>
                     <canvas ref={chartRef} width={800} hidden={800}>
                     </canvas>
-                    <div>
-                        <label>
-                            Number of lines
-                            <input onChange={inputHandler} min={count} value={count} type="number"/>
+                    <div className='chart__footer'>
+                        <label className='input chart'>
+                            <div className='input__label chart'>Number of lines</div>
+                            <input className='input__field chart' onChange={inputHandler}
+                                   min={count} value={count} type="number"/>
                         </label>
 
-                        <button type="button" onClick={resetData}>
-                            Reset
+                        <label className='input chart'>
+                            <div className='input__label chart'>Interval</div>
+                            <input className='input__field chart' onChange={intervalHandler}
+                                   min={500} value={interval} step={500} type="number"/>
+                        </label>
+
+                        <button className='custom-btn chart randomize' type="button" onClick={randomizeData}>
+                            Randomize
                         </button>
 
-                        <button type="button" onClick={randomizeData}>
-                            Randomize Data
-                        </button>
-
-                        <button type="button" onClick={start}>
+                        <button className='custom-btn chart start' type="button" onClick={start}>
                             Start
                         </button>
 
-                        <button type="button" onClick={stop}>
+                        <button className='custom-btn chart stop' type="button" onClick={stop}>
                             Stop
                         </button>
 
-                        <label>
-                            Interval
-                            <input onChange={intervalHandler} min={500} value={interval} step={500} type="number"/>
-                        </label>
+                        <button className='custom-btn chart static' type="button" onClick={dynamicHandler}>
+                            {!dynamic ? 'Dynamic' : 'Static'}
+                        </button>
 
-                        <button type="button" onClick={dynamicsHandler}>
-                            {dynamics ? 'Dynamics' : 'Static'}
+                        <button className='custom-btn chart' type="button" onClick={resetData}>
+                            Reset
                         </button>
                     </div>
                 </div>
@@ -229,7 +242,8 @@ Canvas.propTypes = {
     labelsLength: PropTypes.number,
     labelsStep: PropTypes.number,
     count: PropTypes.number,
-    dynamics: PropTypes.bool,
+    run: PropTypes.bool,
+    dynamic: PropTypes.bool,
     lineNames: PropTypes.arrayOf(
             PropTypes.string
     ),
@@ -249,10 +263,12 @@ Canvas.propTypes = {
 Canvas.defaultProps = {
     type: 'line',
     count: 1,
-    dynamics: true,
+    run: false,
+    dynamic: true,
     lineNames: ['LineName'],
     chartName: 'ChartName',
     labelsTypes: 'string',
+    defaultLabels: [],
     labelsLength: 0,
     labelsStep: 10,
     data: {
@@ -262,7 +278,11 @@ Canvas.defaultProps = {
             label: 'LineName',
             borderColor: 'blue',
             backgroundColor: 'blue'
-        }]
+        }],
+        defaults: {
+            color: '#000000',
+            borderColor: '#000000'
+        }
     },
     interval: 500
 }

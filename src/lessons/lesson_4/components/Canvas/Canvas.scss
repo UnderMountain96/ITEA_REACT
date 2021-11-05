@@ -1,0 +1,71 @@
+.custom-btn.chart {
+  width: auto;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+
+  &.randomize {
+    background-color: blueviolet;
+  }
+
+  &.start {
+    background-color: green;
+  }
+
+  &.stop {
+    background-color: red;
+  }
+
+  &.static {
+    background-color: orange;
+  }
+}
+
+.input {
+  &.chart {
+    margin-bottom: 0;
+    padding: 5px;
+  }
+
+  &__label.chart {
+    font-size: 14px;
+  }
+
+  &__field.chart {
+    width: fit-content;
+    padding: 5px 0;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.chart {
+  &__container {
+    padding: 10px;
+    border: 1px solid darkgray;
+    margin-bottom: 40px;
+  }
+
+  &__indicator {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+
+    &.run {
+      color: green;
+    }
+
+    &.stop {
+      color: red;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+}
+

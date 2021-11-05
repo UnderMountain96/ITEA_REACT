@@ -35,11 +35,11 @@ export class Task2 extends Component {
                 )
             })
         } catch (error) {
-            console.error(error);
+            const {response, message} = error
             this.setState({
                 error: {
-                    status: error.response.status,
-                    msg: 'not found'
+                    status: (response && response.status) || 400,
+                    msg: message || 'not found'
                 }
             })
         }
