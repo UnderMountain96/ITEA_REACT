@@ -4,13 +4,13 @@ import classNames from "classnames";
 import './style.scss'
 
 
-export const Input = ({name, type, placeholder, value, handler, contentLength, contentMaxLength}) => {
+export const Input = ({name, type, placeholder, value, handler, contentLength, contentMaxLength, theme}) => {
     return (
             <label className='input'>
                 <div className='input__label'>{name}</div>
 
                 <input
-                        className={classNames('input__field', {valid: value})}
+                        className={classNames('input__field', {valid: value}, theme)}
                         type={type}
                         placeholder={placeholder}
                         value={value}

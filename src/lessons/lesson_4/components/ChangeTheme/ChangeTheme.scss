@@ -1,0 +1,94 @@
+//.toggle {
+//  &__item.light {
+//    background: #cddfff;
+//
+//    border-color: black;
+//
+//    &.light:last-child {
+//      border-color: black;
+//    }
+//
+//    &.light.active {
+//      background: #0055ff;
+//      color: #ffffff;
+//    }
+//
+//  }
+//
+//  &__item.dark {
+//    background: #cddfff;
+//
+//    border-color: #22272e;
+//
+//    &.dark:last-child {
+//      border-color: #22272e;
+//    }
+//
+//    &.dark.active {
+//      background: #0055ff;
+//      color: #ffffff;
+//    }
+//
+//  }
+//}
+
+
+.input__field {
+  &.light {
+    border-color: lightgrey;
+
+    &::placeholder {
+      color: #b5b5b5
+    }
+  }
+
+  &.dark {
+    border-color: #22272e;
+
+    &::placeholder {
+      color: #2d333b
+    }
+  }
+}
+
+.table {
+  &.light {
+    border-color: lightgrey;
+  }
+
+  &.dark {
+    border-color: #22272e;
+  }
+}
+
+.row {
+  &.light {
+    border-color: lightgrey !important;
+    background-color: #d0d7de;
+    color: #000000 !important;
+  }
+
+  &.dark {
+    border-color: #22272e !important;
+    background-color: #2d333b;
+    color: #ffffff !important;
+  }
+}
+
+.cell {
+  &.light {
+    border-color: lightgrey;
+  }
+
+  &.text.light {
+    color: #000000 !important;
+  }
+
+  &.dark {
+    border-color: #22272e;
+  }
+
+  &.text.dark {
+    color: #ffffff !important;
+  }
+}

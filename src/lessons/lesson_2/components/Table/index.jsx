@@ -1,15 +1,14 @@
 import React from 'react';
 import './style.scss'
+import classNames from "classnames";
 
 
-const Table = ({children}) => {
+export const Table = ({children, theme}) => {
     return (
-        <div className='table'>
+        <div className={classNames('table', theme)}>
             {React.Children.map(children, (child, i) => {
                 return React.cloneElement(child, {index: i});
             })}
         </div>
     );
 };
-
-export default Table;

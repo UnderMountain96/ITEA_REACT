@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Table from "@lesson_2/components/Table";
-import Row from "@lesson_2/components/Table/Row";
-import Cell from "@lesson_2/components/Table/Cell";
+import {Table, Row, Cell} from "@lesson_2/components";
 
 
 export class Task4 extends Component {

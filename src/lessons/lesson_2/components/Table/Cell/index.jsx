@@ -1,9 +1,11 @@
 import React from 'react';
 import './style.scss'
+import classNames from "classnames";
 
 
-const DateCell = ({children, background, color}) => {
-    return <div style={{backgroundColor: background, color: color}} className='cell date'>
+const DateCell = ({children, background, color, theme}) => {
+    return <div style={{backgroundColor: background, color: color}}
+                className={classNames('cell date', theme)}>
         {children}
     </div>
 };
@@ -13,8 +15,9 @@ DateCell.defaultProps = {
     color: 'blueviolet'
 }
 
-const NumberCell = ({children, background, color}) => {
-    return <div style={{backgroundColor: background, color: color}} className='cell number'>
+const NumberCell = ({children, background, color, theme}) => {
+    return <div style={{backgroundColor: background, color: color}}
+                className={classNames('cell number', theme)}>
         {children}
     </div>
 };
@@ -24,12 +27,13 @@ NumberCell.defaultProps = {
     color: 'blue'
 }
 
-const MoneyCell = ({children, background, color, currency}) => {
+const MoneyCell = ({children, background, color, currency, theme}) => {
     const addCurrency = () => (
             currency ? currency : console.log('currency empty')
     )
 
-    return <div style={{backgroundColor: background, color: currency ? color : 'red'}} className='cell money'>
+    return <div style={{backgroundColor: background, color: currency ? color : 'red'}}
+                className={classNames('cell money', theme)}>
         {children} {addCurrency()}
     </div>
 };
@@ -39,8 +43,9 @@ MoneyCell.defaultProps = {
     color: 'green'
 }
 
-const TextCell = ({children, background, color}) => {
-    return <div style={{backgroundColor: background, color: color}} className='cell text'>
+const TextCell = ({children, background, color, theme}) => {
+    return <div style={{backgroundColor: background, color: color}}
+                className={classNames('cell text', theme)}>
         {children}
     </div>
 };
@@ -58,7 +63,7 @@ const types = [
     {type: 'default', component: TextCell}
 ];
 
-const Cell = (props) => {
+export const Cell = (props) => {
     let subCell = types.find(cell => cell.type === props.type);
     if (subCell) {
         return <subCell.component {...props}/>
@@ -71,6 +76,3 @@ Cell.defaultProps = {
     type: 'text',
     cells: 1,
 }
-
-
-export default Cell;

@@ -3,9 +3,9 @@ import './style.scss'
 import classNames from "classnames";
 
 
-const Row = ({children, index, head}) => {
+export const Row = ({children, index, head, theme}) => {
     return (
-        <div className={classNames('row', {'head': head})}>
+        <div className={classNames('row', {'head': head}, theme)}>
             {React.Children.map(children, (child, i) => {
                 if (i === 0 && !head) return React.cloneElement(child, {children: index});
                 return child
@@ -17,5 +17,3 @@ const Row = ({children, index, head}) => {
 Row.defaultProps = {
     head: false
 }
-
-export default Row;
