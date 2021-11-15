@@ -1,11 +1,12 @@
-import React from 'react'
+import React       from 'react'
 import {PropTypes} from "prop-types";
 import './style.scss'
+import classNames  from "classnames";
 
 
-export const Toggler = ({name, children, action, activeState, id}) => {
+export const Toggler = ({name, children, action, activeState, id, theme}) => {
     return (
-            <div className='toggle'>
+            <div className={classNames('toggle', theme)}>
                 <b className='toggle__title'>{name}</b>
                 <div>
                     {
@@ -13,8 +14,7 @@ export const Toggler = ({name, children, action, activeState, id}) => {
                         React.Children.map(children, (item) => {
                             if (React.isValidElement(item)) {
                                 return React.cloneElement(
-                                        item,
-                                        {
+                                        item, {
                                             active: item.props.value === activeState,
                                             action: action({
                                                 value: item.props.value,

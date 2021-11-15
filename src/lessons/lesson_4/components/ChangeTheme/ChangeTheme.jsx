@@ -6,6 +6,7 @@ import {ThemeContext} from '@lesson_4/views/Task2/theme-context'
 import {v4 as uuidv4} from "uuid";
 import './ChangeTheme.scss'
 
+
 export class ChangeTheme extends React.Component {
     currency = ['$', '€', '₴', 'Zł']
 
@@ -85,35 +86,26 @@ export class ChangeTheme extends React.Component {
                                     />
                                 </div>
 
-                                <Input placeholder={'Change Theme'} theme={theme} value={input}
+                                <Input placeholder={`${theme} theme`} theme={theme} value={input}
                                        type={"text"} handler={handler}/>
 
-                                <Toggler {...toggler} action={active}>
+                                <Toggler theme={theme} {...toggler} action={active}>
                                     {toggler.items.map(item => <TogglerItem key={uuidv4()} value={item}/>)}
                                 </Toggler>
 
                                 <Table theme={theme}>
-                                    <Row theme={theme} head={true}>
-                                        <Cell theme={theme}>
-                                            #
-                                        </Cell>
-                                        <Cell theme={theme}>
-                                            date
-                                        </Cell>
-                                        <Cell theme={theme}>
-                                            number
-                                        </Cell>
-                                        <Cell theme={theme}>
-                                            money
-                                        </Cell>
+                                    <Row head={true}>
+                                        <Cell>#</Cell>
+                                        <Cell>date</Cell>
+                                        <Cell>number</Cell>
+                                        <Cell>money</Cell>
                                     </Row>
                                     {data.map((row) => (
-                                            <Row theme={theme} key={uuidv4()}>
-                                                <Cell theme={theme}>
-                                                </Cell>
-                                                <Cell theme={theme} type='date'>{row.date}</Cell>
-                                                <Cell theme={theme} type='number'>{row.number}</Cell>
-                                                <Cell theme={theme} type='money' currency={row.money.currency}>
+                                            <Row key={uuidv4()}>
+                                                <Cell> </Cell>
+                                                <Cell type='date'>{row.date}</Cell>
+                                                <Cell type='number'>{row.number}</Cell>
+                                                <Cell type='money' currency={row.money.currency}>
                                                     {row.money.number}
                                                 </Cell>
                                             </Row>

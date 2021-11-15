@@ -1,36 +1,15 @@
-//.toggle {
-//  &__item.light {
-//    background: #cddfff;
-//
-//    border-color: black;
-//
-//    &.light:last-child {
-//      border-color: black;
-//    }
-//
-//    &.light.active {
-//      background: #0055ff;
-//      color: #ffffff;
-//    }
-//
-//  }
-//
-//  &__item.dark {
-//    background: #cddfff;
-//
-//    border-color: #22272e;
-//
-//    &.dark:last-child {
-//      border-color: #22272e;
-//    }
-//
-//    &.dark.active {
-//      background: #0055ff;
-//      color: #ffffff;
-//    }
-//
-//  }
-//}
+.toggle {
+  &.dark {
+    .toggle__item {
+      color: #ffffff;
+      background: #698096;
+
+      &.active {
+        background: #003a56;
+      }
+    }
+  }
+}
 
 
 .input__field {
@@ -72,6 +51,10 @@
     border-color: #22272e !important;
     background-color: #2d333b;
     color: #ffffff !important;
+  }
+
+  &.dark:hover:not(.head) {
+    background-color: rgba(#2d333b, .9);
   }
 }
 

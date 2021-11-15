@@ -8,7 +8,6 @@ export class Task2 extends Component {
     }
 
     changeTheme = (theme) => {
-        console.log(theme)
         this.setState({theme});
     }
 
