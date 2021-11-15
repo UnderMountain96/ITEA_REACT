@@ -1,7 +1,7 @@
 import React, {Component, createRef} from 'react';
-import Chart from 'chart.js/auto';
-import {PropTypes} from "prop-types";
-import classNames from "classnames";
+import Chart                         from 'chart.js/auto';
+import {PropTypes}                   from "prop-types";
+import classNames                    from "classnames";
 import './Canvas.scss'
 
 
@@ -200,14 +200,16 @@ export class Canvas extends Component {
                         <button className='custom-btn chart randomize' type="button" onClick={randomizeData}>
                             Randomize
                         </button>
-
-                        <button className='custom-btn chart start' type="button" onClick={start}>
-                            Start
-                        </button>
-
-                        <button className='custom-btn chart stop' type="button" onClick={stop}>
-                            Stop
-                        </button>
+                        {run
+                                ?
+                                <button className='custom-btn chart stop' type="button" onClick={stop}>
+                                    Stop
+                                </button>
+                                :
+                                <button className='custom-btn chart start' type="button" onClick={start}>
+                                    Start
+                                </button>
+                        }
 
                         <button className='custom-btn chart static' type="button" onClick={dynamicHandler}>
                             {!dynamic ? 'Dynamic' : 'Static'}
@@ -221,6 +223,7 @@ export class Canvas extends Component {
         );
     };
 }
+
 
 Canvas.propTypes = {
     type: PropTypes.oneOf([

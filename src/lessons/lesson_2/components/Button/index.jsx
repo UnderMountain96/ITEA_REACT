@@ -3,7 +3,7 @@ import './style.scss'
 import PropTypes from "prop-types";
 import {v4 as uuidv4} from 'uuid';
 
-const Button = ({text, style, action}) => {
+export const Button = ({text, style, action}) => {
 
     const clickHandler = () => {
         action({
@@ -31,6 +31,3 @@ Button.defaultProps = {
 Button.propTypes = {
     logger: PropTypes.func
 };
-
-
-export default Button;

@@ -4,9 +4,18 @@
       color: #ffffff;
       background: #698096;
 
+      &:hover {
+        background: #455c73;
+      }
+
       &.active {
         background: #003a56;
+
+        &:hover {
+          background: #002f42;
+        }
       }
+
     }
   }
 }

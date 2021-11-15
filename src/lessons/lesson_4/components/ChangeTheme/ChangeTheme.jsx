@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from "@lesson_2/components/Button";
+import {Button} from "@lesson_2/components";
 import {Input, Toggler, TogglerItem} from "@lesson_3/components";
 import {Cell, Row, Table} from "@lesson_2/components";
-import {ThemeContext} from '@lesson_4/views/Task2/theme-context'
+import {ThemeContext} from '@lesson_4/views/Task2/theme-context';
 import {v4 as uuidv4} from "uuid";
-import './ChangeTheme.scss'
+import './ChangeTheme.scss';
 
 
 export class ChangeTheme extends React.Component {

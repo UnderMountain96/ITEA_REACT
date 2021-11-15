@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Button from "@lesson_2/components/Button";
+import {Button} from "@lesson_2/components";
 import Notification from "@lesson_2/components/Notification";
 
 export class Task1 extends Component {
