@@ -1,7 +1,7 @@
 import React, {Component, createRef} from 'react';
-import Chart                         from 'chart.js/auto';
-import {PropTypes}                   from "prop-types";
-import classNames                    from "classnames";
+import Chart from 'chart.js/auto';
+import {PropTypes} from "prop-types";
+import classNames from "classnames";
 import './Canvas.scss'
 
 
@@ -98,6 +98,7 @@ export class Canvas extends Component {
                         let inc = line.data[line.data.length - 1] + this.getRandomInt(-5, 10);
                         if (inc < 0) inc = 0
                         line.data.push(inc)
+                        if (line.data.length > 50) this.setState({dynamic: true})
 
                         if (line.data.length >= labels.length) {
                             if (!dynamic) {
