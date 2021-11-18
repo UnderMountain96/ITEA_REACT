@@ -7,43 +7,47 @@ const Rating = ({id}) => {
     const [rating, setRating] = useState(0)
 
     useEffect(() => {
-        getLocalStorage()
-    })
+        try {
+            const ls = localStorage.getItem('PhotoRating') || localStorage.setItem('PhotoRating', JSON.stringify([]));
+            const json = JSON.parse(ls)
+            const data = json.find((i) => (i.id === id))
+            if (data) {
+                setRating(data.rating);
+            } else {
+                localStorage.setItem('PhotoRating', JSON.stringify([...json, {id, rating}]));
+            }
+            // console.log(ls)
+            // console.log(json)
+            // console.log(json.find((i) => (i.id === id)))
+            // if (!json.find((i) => (i.id === id))) json.push({id, rating})
+            // const data = json.map((i) => (i.id === id ? {id, rating} : i))
 
+            // if (!data) localStorage.setItem('PhotoRating', JSON.stringify([...json, {id, rating}]));
+            // setRating(data.rating);
+        } catch (e) {
+            console.log(e)
+        }
 
-    const setLocalStorage = () => {
-        localStorage.setItem('PhotoRating', JSON.stringify([{id, rating}]))
-    }
+    }, [id, rating])
 
 
     // useEffect(() => {
-    //     setLocalStorage(rating)
-    // }, [setLocalStorage, rating])
+    //     if (rating) {
+    //         try {
+    //             const data = JSON.parse(localStorage.getItem('PhotoRating'))
+    //             localStorage.setItem('PhotoRating', JSON.stringify(data.map((i) => (i.id === id ? {id, rating} : i))))
+    //         } catch (e) {
+    //             console.error(e)
+    //         }
+    //     }
+    // }, [rating])
 
-
-    const getLocalStorage = () => {
-        const ls = localStorage.getItem('PhotoRating')
-
-        if (!ls) return initLocalStorage()
-        parseLocalStorage(ls)
-        // setRating(parseLocalStorage(ls))
-
-    }
-
-    const parseLocalStorage = (ls) => {
-        const json = JSON.parse(ls)
-        console.log(json)
-        const json.find((i) => {
-            return i.id === id;
-        }))
-    }
-
-    const initLocalStorage = () => {
-        localStorage.setItem('PhotoRating', JSON.stringify([]))
-    }
 
     const changeHandler = (e) => {
-        setRating(e.target.value)
+        const data = e.target.value
+        setRating(data)
+        const json = JSON.parse(localStorage.getItem('PhotoRating'))
+        localStorage.setItem('PhotoRating', JSON.stringify(json.map((i) => (i.id === id ? {id, raring: data} : i))))
     }
 
 

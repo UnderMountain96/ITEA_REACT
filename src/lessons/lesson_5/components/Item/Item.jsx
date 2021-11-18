@@ -12,7 +12,6 @@ export const Item = () => {
                 .then(res => res.json())
                 .then(res => setPost(res));
     }, [params, setPost]);
-    console.log(post)
 
     return (
             <>
