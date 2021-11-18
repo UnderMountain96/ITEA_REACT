@@ -1,7 +1,9 @@
 import React     from 'react';
 import {NavLink} from "react-router-dom";
-import './style.scss'
-import routes    from "../../route_map";
+import './Header.style.scss'
+import routes    from "../../routes_map";
+import uniqid    from "uniqid";
+
 
 export const Header = () => {
     return (
@@ -18,7 +20,7 @@ export const Header = () => {
                         routes.map(route => {
                             if (route.title) {
                                 return (
-                                        <li className='header__list__item' key={route.path}>
+                                        <li className='header__list__item' key={uniqid()}>
                                             <NavLink className='header__list__item__link' to={{pathname: route.path}}>
                                                 {route.title}
                                             </NavLink>

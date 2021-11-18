@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Header}           from "@lesson_5/components";
 import {Route, Switch}    from "react-router-dom";
-import routes             from "../../route_map";
+import routes             from "../../routes_map";
+import uniqid             from 'uniqid';
 
 
 export class Task1 extends Component {
@@ -14,7 +15,7 @@ export class Task1 extends Component {
 
                     <Switch>
                         {
-                            routes.map(route => (<Route key={route.path} {...route}/>))
+                            routes.map(route => (<Route key={uniqid()} {...route}/>))
                         }
                     </Switch>
                 </>

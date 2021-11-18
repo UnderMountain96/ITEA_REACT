@@ -1,7 +1,8 @@
 import React, {Component}                    from 'react';
 import {HashRouter, Switch, Route, Redirect} from "react-router-dom";
 import {Header}                              from "@components";
-import routes                                from "./route_map"
+import routes                                from "./routes_map"
+import uniqid                                from "uniqid";
 
 
 class App extends Component {
@@ -13,12 +14,14 @@ class App extends Component {
                     <Switch>
                         <Redirect exact from='/' to='/home'/>
                         {
-                            routes.map(route => (<Route key={route.path} {...route}/>))
+                            routes.map(route => (<Route key={uniqid()} {...route}/>))
                         }
+
                     </Switch>
                 </HashRouter>
         );
     }
 }
+
 
 export default App;

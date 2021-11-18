@@ -1,4 +1,11 @@
-import {About, Contacts, Home, Item, List, NotFound} from "@lesson_5/components";
+// import {About, Contacts, Home, Item, List, NotFound} from "./components"; //NOT WORK!!!
+import {About} from "./components/About/About";
+import {Contacts} from "./components/Contacts/Contacts";
+import {Home} from "./components/Home/Home";
+import {Item} from "./components/Item/Item";
+import {List} from "./components/List/List";
+import {NotFound} from "./components/NotFound/NotFound";
+
 
 const basename = '/lesson/5'
 
@@ -33,7 +40,6 @@ const routes = [
         exact: true
     },
     {
-        path: '*',
         component: NotFound
     }
 ];

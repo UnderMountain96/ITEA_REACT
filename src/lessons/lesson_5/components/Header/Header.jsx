@@ -1,7 +1,7 @@
 import React  from 'react';
 import {Link} from "react-router-dom";
 import './style.scss'
-import routes from "../../route_map";
+import routes from "../../routes_map";
 
 
 export const Header = () => {
