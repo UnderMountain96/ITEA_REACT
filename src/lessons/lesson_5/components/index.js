@@ -1,0 +1,7 @@
+export * from './Header/Header'
+export * from './Home/Home'
+export * from './About/About'
+export * from './Contacts/Contacts'
+export * from './List/List'
+export * from './Item/Item'
+export * from './NotFound/NotFound'
