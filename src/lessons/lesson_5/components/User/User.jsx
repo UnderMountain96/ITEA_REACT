@@ -1,7 +1,6 @@
 import React          from 'react';
 import {useParams}    from "react-router";
 import {useDataFetch} from "@lesson_4/components";
-import {Comments}     from "@lesson_5/components";
 import uniqid         from "uniqid";
 import {Link}         from "react-router-dom";
 
@@ -31,7 +30,6 @@ export const User = () => {
                                 </Link>
                             </div>
                         </div>
-
             }
         </div>
     </>);
