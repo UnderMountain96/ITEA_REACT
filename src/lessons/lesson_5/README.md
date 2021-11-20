@@ -35,7 +35,7 @@ https://jsonplaceholder.typicode.com/users/1
 
 
 Задание 3:
-[ ]
+[+]
 
 Используя React-router написать небольшое приложение с маршрутизацией используя следующее API:
 
