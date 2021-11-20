@@ -11,7 +11,6 @@ export class Task1 extends Component {
                     <h1>Task 1</h1>
 
                     <Canvas
-                            run={true}
                             count={3}
                             dynamic={false}
                             lineNames={country}

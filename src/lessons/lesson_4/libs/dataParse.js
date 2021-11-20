@@ -4,9 +4,9 @@ import {v4 as uuidv4} from "uuid";
 const postsParser = (data) => (
     data.map((i) => (
         <div key={uuidv4()}>
+            <hr/>
             <h4>{i.title}</h4>
             <p>{i.body}</p>
-            <hr/>
         </div>
     ))
 )

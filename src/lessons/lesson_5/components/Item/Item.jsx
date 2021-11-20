@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams}                  from 'react-router';
-import Rating                       from "@lesson_5/components/Rating/Rating";
+import {Rating}                     from "@lesson_5/components";
 
 
 export const Item = () => {
@@ -20,9 +20,9 @@ export const Item = () => {
                     !post ?
                             <div> Loading </div> :
                             <div>
-                                <h2 style={{textAlign: 'center'}}>{post.title}</h2>
+                                <h2 className={'photo__list__item-title'}>{post.title}</h2>
                                 <Rating id={post.id}/>
-                                <img src={post.url} alt=""/>
+                                <img height={600} src={post.url} alt=""/>
                             </div>
                 }
             </>

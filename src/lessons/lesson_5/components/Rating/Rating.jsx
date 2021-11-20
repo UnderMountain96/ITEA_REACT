@@ -1,29 +1,32 @@
 import React, {useEffect, useState} from 'react';
 import parrot                       from '../../assets/parrot.svg'
 import parrotFill                   from '../../assets/parrotFill.svg'
+import uniqid                       from "uniqid";
 
 
-const Rating = ({id}) => {
-    const [rating, setRating] = useState(0)
+export const Rating = ({id}) => {
+    const [rating, setRating] = useState(null)
 
     useEffect(() => {
         try {
-            const ls = localStorage.getItem('PhotoRating') || localStorage.setItem('PhotoRating', JSON.stringify([]));
-            const json = JSON.parse(ls)
-            const data = json.find((i) => (i.id === id))
-            if (data) {
-                setRating(data.rating);
-            } else {
-                localStorage.setItem('PhotoRating', JSON.stringify([...json, {id, rating}]));
+            if (id) {
+                const photoRating = JSON.parse(localStorage.getItem('PhotoRating')) || [];
+                if (photoRating.find((i) => (i.id === id))) {
+                    photoRating.map((i) => {
+                        if (i.id === id) {
+                            if (rating === null) {
+                                setRating(i.rating)
+                            }
+                            i.rating = rating
+                        }
+                        return i
+                    })
+                } else {
+                    photoRating.push({id, rating: 0})
+                    setRating(0)
+                }
+                localStorage.setItem('PhotoRating', JSON.stringify(photoRating));
             }
-            // console.log(ls)
-            // console.log(json)
-            // console.log(json.find((i) => (i.id === id)))
-            // if (!json.find((i) => (i.id === id))) json.push({id, rating})
-            // const data = json.map((i) => (i.id === id ? {id, rating} : i))
-
-            // if (!data) localStorage.setItem('PhotoRating', JSON.stringify([...json, {id, rating}]));
-            // setRating(data.rating);
         } catch (e) {
             console.log(e)
         }
@@ -31,32 +34,35 @@ const Rating = ({id}) => {
     }, [id, rating])
 
 
-    // useEffect(() => {
-    //     if (rating) {
-    //         try {
-    //             const data = JSON.parse(localStorage.getItem('PhotoRating'))
-    //             localStorage.setItem('PhotoRating', JSON.stringify(data.map((i) => (i.id === id ? {id, rating} : i))))
-    //         } catch (e) {
-    //             console.error(e)
-    //         }
-    //     }
-    // }, [rating])
-
-
-    const changeHandler = (e) => {
-        const data = e.target.value
-        setRating(data)
-        const json = JSON.parse(localStorage.getItem('PhotoRating'))
-        localStorage.setItem('PhotoRating', JSON.stringify(json.map((i) => (i.id === id ? {id, raring: data} : i))))
+    const clickHandler = (value) => (e) => {
+        setRating(value)
     }
 
+    const ratingBtn = () => {
+        const arr = []
+        let img = parrotFill;
+        for (let i = 0; i < 5; i++) {
+            if (i >= rating) img = parrot
+            arr.push(btn({value: i + 1, img}))
+        }
+        return arr
+    }
+
+    const btn = ({value, img}) => (
+            <img
+                    key={uniqid()}
+                    onDrag={clickHandler(0)}
+                    onClick={clickHandler(value)}
+                    src={img}
+                    alt={''}
+                    title={`rating: ${value}\ndrag for set 0`}
+                    height={40}
+            />
+    )
 
     return (
-            <>
-                <div>{rating}</div>
-                <div><input onChange={changeHandler} type="number" value={rating}/></div>
-            </>
-    );
+            <div>
+                {ratingBtn().map(i => i)}
+            </div>
+    )
 };
-
-export default Rating;

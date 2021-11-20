@@ -1,0 +1,25 @@
+.photo__list {
+  overflow-y: scroll;
+  height: 500px;
+  min-width: 600px;
+  border: 1px solid black;
+
+  &-loading {
+    text-align: center;
+  }
+
+  &-img {
+    width: 150px;
+    height: 150px;
+  }
+
+
+  &__item {
+    padding: 10px 10px 20px 10px;
+    border-bottom: 1px solid black;
+
+    &-title {
+      text-transform: capitalize;
+    }
+  }
+}
