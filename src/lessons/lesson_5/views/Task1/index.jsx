@@ -10,7 +10,7 @@ export class Task1 extends Component {
     render() {
         return (
                 <>
-                    <h1>Task 1</h1>
+                    <h1>Task 1-3</h1>
                     <Header/>
 
                     <Switch>

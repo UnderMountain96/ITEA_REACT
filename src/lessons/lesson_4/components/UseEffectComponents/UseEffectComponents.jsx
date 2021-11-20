@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {
     JSONPlaceholder,
-    JSONPlaceholder2,
-    JSONPlaceholder3,
     Selector,
     SelectorItem
 }                        from "@lesson_4/components";
@@ -66,8 +64,8 @@ export const UseEffectComponents = () => {
                 </Selector>
                 <div className={'UseEffectColumns'}>
                     <JSONPlaceholder data={randomUrl()}/>
-                    <JSONPlaceholder2 data={randomUrl()}/>
-                    <JSONPlaceholder3 data={randomUrl()}/>
+                    <JSONPlaceholder data={randomUrl()}/>
+                    <JSONPlaceholder data={randomUrl()}/>
                 </div>
             </>
     );

@@ -1,3 +1,5 @@
+
+
 Задание 1.
 [+]
 
@@ -32,7 +34,7 @@ https://jsonplaceholder.typicode.com/users/1
 Рейтинг записывать в localStorage.
 
 
-Задание:
+Задание 3:
 [ ]
 
 Используя React-router написать небольшое приложение с маршрутизацией используя следующее API:
@@ -41,7 +43,6 @@ https://jsonplaceholder.typicode.com/users/1
 - Получить конкретный пост: https://jsonplaceholder.typicode.com/posts/1
 - Получить комментарии к конкретному посту: https://jsonplaceholder.typicode.com/posts/1/comments
 - Получить данные с параметрами: https://jsonplaceholder.typicode.com/users?_start=0&_limit=2
-
 
 Карта приложения:
 
@@ -68,7 +69,3 @@ https://jsonplaceholder.typicode.com/users/1
 Используя доступные методы в API расширить приложение на доп. страницы с
 пользователями/альбомами/фото
 https://jsonplaceholder.typicode.com/
-
-
-
-

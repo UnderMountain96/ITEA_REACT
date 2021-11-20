@@ -8,9 +8,12 @@ export const JSONPlaceholder = ({data}) => {
     const [posts] = useDataFetch(url);
 
     return (
-            <div style={{display: posts.length ? 'block' : 'none'}} className={'column'}>
+            <div className={'column'}>
                 <h2 style={{textAlign: 'center'}}>{type.toUpperCase()}</h2>
-                {dataParse({type, posts})}
+                {
+                    posts ? dataParse({type, posts}) : <h3>Loading...</h3>
+                }
+
             </div>
     );
 };

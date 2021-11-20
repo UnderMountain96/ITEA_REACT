@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Task1, Task2, Task3} from "@lesson_5/views";
+import {Task1} from "@lesson_5/views";
+import '../../styles/commo.scss'
 
 
 export class Main extends Component {
@@ -10,8 +11,6 @@ export class Main extends Component {
                     <div className='container'>
                         <div className='container__center'>
                             <Task1/>
-                            {/*<Task2/>*/}
-                            {/*<Task3/>*/}
                         </div>
                     </div>
                 </>
