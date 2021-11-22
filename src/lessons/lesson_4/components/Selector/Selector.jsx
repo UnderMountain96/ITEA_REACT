@@ -7,16 +7,12 @@ import "./Selector.style.scss";
 
 
 export const Selector = ({name, children, action, activeState, id}) => {
-    const btnRef = useRef(null);
+    const btnRef = useRef();
+    const titleRef = useRef();
     const [show, setShow] = useState(false);
-    const [width, setWidth] = useState([]);
 
     const changeShow = () => {
         setShow(!show);
-    };
-
-    const getWidth = (w) => {
-        setWidth([...width, w]);
     };
 
     const compose = (f, g) => {
@@ -27,11 +23,20 @@ export const Selector = ({name, children, action, activeState, id}) => {
 
     return (
         <div className={classNames("selector")}>
-            <b className='selector__title'>{name}</b>
-            <SelectorDrop getWidth={getWidth} btnRef={btnRef} key={uuidv4()} action={changeShow}>
-                {activeState}
-            </SelectorDrop>
-            <div className={"selector__list"}>
+            <div ref={titleRef}>
+                <div className='selector__title'>{name}</div>
+                <SelectorDrop btnRef={btnRef} key={uuidv4()} action={changeShow}>
+                    {activeState}
+                </SelectorDrop>
+            </div>
+            <div style={
+                {
+                    marginTop: titleRef.current && btnRef.current ?
+                        titleRef.current.offsetHeight :
+                        "auto"
+                }
+            }
+                 className={"selector__list"}>
                 {
                     React.Children.count(children) > 0 &&
                     React.Children.map(children, (item) => {
@@ -39,13 +44,13 @@ export const Selector = ({name, children, action, activeState, id}) => {
                             return React.cloneElement(
                                 item, {
                                     width: btnRef.current ? btnRef.current.offsetWidth : "auto",
+
                                     show,
                                     active: item.props.value === activeState,
                                     action: compose(action({
                                         value: item.props.value,
                                         id
-                                    }), changeShow),
-                                    getWidth
+                                    }), changeShow)
                                 }
                             );
                         }

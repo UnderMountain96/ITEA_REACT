@@ -17,20 +17,22 @@ const Todo = ({selector}) => {
         inputRef.current.focus();
     });
 
-    const titleHandler = (e) => setTitle(e.target.value.trim());
+    const titleHandler = (e) => setTitle(e.target.value);
 
     const onAddTodo = () => {
-        if (!title.length) {
+        const trimTitle = title.trim();
+        if (!trimTitle.length) {
             dispatch(addNotification({
                 message: "Title empty!",
                 status: WARNING
             }));
+            setTitle("");
             return;
         }
 
-        dispatch(addTodo(title));
+        dispatch(addTodo(trimTitle));
         dispatch(addNotification({
-            message: `Todo created: "${title}"`,
+            message: `Todo created: "${trimTitle}"`,
             status: SUCCESS
         }));
         setTitle("");
@@ -38,8 +40,8 @@ const Todo = ({selector}) => {
 
     return (
         <div className={"todo"}>
-            <div className={"todo__header"}>
-                <form>
+            <>
+                <form className={"todo__header"}>
                     <input className={"todo__input"}
                            onSubmit={onAddTodo}
                            ref={inputRef}
@@ -51,7 +53,7 @@ const Todo = ({selector}) => {
                         Add
                     </button>
                 </form>
-            </div>
+            </>
             {
                 list.length ?
                     list.map((item, index) => (<TodoItem key={uniqid()} item={item} index={index + 1}/>)) :

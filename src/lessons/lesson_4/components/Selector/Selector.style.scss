@@ -7,8 +7,10 @@
   width: auto;
 
   &__title {
+    text-align: center;
     margin-bottom: 10px;
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   &__list {

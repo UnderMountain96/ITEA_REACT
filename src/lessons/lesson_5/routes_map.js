@@ -49,6 +49,12 @@ const routes = [
         exact: true
     },
     {
+        title: "Albums",
+        path: `${basename}/albums`,
+        component: Albums,
+        exact: true
+    },
+    {
         path: `${basename}/photos/:photoid`,
         component: Photo,
         exact: true

@@ -22,7 +22,7 @@ export const TodoItem = ({item, index}) => {
             <div
                 onClick={onToggleTodo(item.id)}
                 className={classNames("todoItem__text", {"todoItem__text-done": item.status})}>
-                {index}.{item.title}
+                {index}. {item.title}
             </div>
             <button className={"todo__btn todo__btn-delete"} onClick={onRemoveTodo(item.id)}> Delete</button>
         </div>
