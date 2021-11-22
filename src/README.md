@@ -12,7 +12,7 @@
 |3|done|[lesson 3](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_3 "GitHub lesson 3")|
 |4|done|[lesson 4](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_4 "GitHub lesson 4")|
 |5|done|[lesson 5](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_5 "GitHub lesson 5")|
-|6|||
+|6|done|[lesson 6](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_6 "GitHub lesson 6")|
 |7|||
 |8|||
 |9|||
