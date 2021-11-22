@@ -1,52 +1,52 @@
-import React, {useEffect, useState} from 'react';
-import parrot                       from '../../assets/parrot.svg'
-import parrotFill                   from '../../assets/parrotFill.svg'
+import React, {useEffect, useState} from "react";
+import parrot                       from "../../assets/parrot.svg";
+import parrotFill                   from "../../assets/parrotFill.svg";
 import uniqid                       from "uniqid";
 
 
 export const Rating = ({id}) => {
-    const [rating, setRating] = useState(null)
+    const [rating, setRating] = useState(null);
 
     useEffect(() => {
         try {
             if (id) {
-                const photoRating = JSON.parse(localStorage.getItem('PhotoRating')) || [];
+                const photoRating = JSON.parse(localStorage.getItem("PhotoRating")) || [];
                 if (photoRating.find((i) => (i.id === id))) {
                     photoRating.map((i) => {
                         if (i.id === id) {
                             if (rating === null) {
-                                setRating(i.rating)
+                                setRating(i.rating);
                             }
-                            i.rating = rating
+                            i.rating = rating;
                         }
-                        return i
-                    })
+                        return i;
+                    });
                 } else {
-                    photoRating.push({id, rating: 0})
-                    setRating(0)
+                    photoRating.push({id, rating: 0});
+                    setRating(0);
                 }
-                localStorage.setItem('PhotoRating', JSON.stringify(photoRating));
+                localStorage.setItem("PhotoRating", JSON.stringify(photoRating));
             }
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
 
-    }, [id, rating])
+    }, [id, rating]);
 
 
     const clickHandler = (value) => (e) => {
-        setRating(value)
-    }
+        setRating(value);
+    };
 
     const ratingBtn = () => {
-        const arr = []
+        const arr = [];
         let img = parrotFill;
         for (let i = 0; i < 5; i++) {
-            if (i >= rating) img = parrot
-            arr.push(btn({value: i + 1, img}))
+            if (i >= rating) img = parrot;
+            arr.push(btn({value: i + 1, img}));
         }
-        return arr
-    }
+        return arr;
+    };
 
     const btn = ({value, img}) => (
             <img
@@ -54,15 +54,15 @@ export const Rating = ({id}) => {
                     onDrag={clickHandler(0)}
                     onClick={clickHandler(value)}
                     src={img}
-                    alt={''}
+                    alt={""}
                     title={`rating: ${value}\ndrag for set 0`}
                     height={40}
             />
-    )
+    );
 
     return (
             <div>
                 {ratingBtn().map(i => i)}
             </div>
-    )
+    );
 };

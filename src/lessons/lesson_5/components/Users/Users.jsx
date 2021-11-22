@@ -1,20 +1,20 @@
-import React          from 'react';
+import React          from "react";
 import uniqid         from "uniqid";
 import {Link}         from "react-router-dom";
 import {useDataFetch} from "@lesson_4/components";
 
 
 export const Users = () => {
-    const [users] = useDataFetch(`https://jsonplaceholder.typicode.com/users`);
+    const [users] = useDataFetch("https://jsonplaceholder.typicode.com/users");
 
     return (<>
         <h1>Users</h1>
-        <div className={'albums__list'}>
+        <div className={"albums__list"}>
             {
-                !users ? <h2 className={'albums__list-loading'}> Loading... </h2> :
+                !users ? <h2 className={"albums__list-loading"}> Loading... </h2> :
                         users.map(user => (
-                                <div key={uniqid()} className={'photo__list__item'}>
-                                    <h3 className={'photo__list__item-title'}><b>{user.id}.</b> {user.username}</h3>
+                                <div key={uniqid()} className={"photo__list__item"}>
+                                    <h3 className={"photo__list__item-title"}><b>{user.id}.</b> {user.username}</h3>
                                     <p>
                                         <b>Name: {user.name}</b><br/>
                                         <b>Email: {user.email}</b>

@@ -8,20 +8,8 @@
       "@components/*": [
         "./components/*"
       ],
-      "@lesson_1/*": [
-        "./lessons/lesson_1/*"
-      ],
-      "@lesson_2/*": [
-        "./lessons/lesson_2/*"
-      ],
-      "@lesson_3/*": [
-        "./lessons/lesson_3/*"
-      ],
-      "@lesson_4/*": [
-        "./lessons/lesson_4/*"
-      ],
-      "@lesson_5/*": [
-        "./lessons/lesson_5/*"
+      "@lessons/*": [
+        "./lessons/*"
       ]
     }
   },

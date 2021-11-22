@@ -1,6 +1,6 @@
-import React     from 'react';
+import React     from "react";
 import {NavLink} from "react-router-dom";
-import './Header.style.scss'
+import "./Header.style.scss";
 import routes    from "../../routes_map";
 import uniqid    from "uniqid";
 
@@ -25,9 +25,9 @@ export const Header = () => {
                                                 {route.title}
                                             </NavLink>
                                         </li>
-                                )
+                                );
                             }
-                            return null
+                            return null;
                         })
                     }
                 </ul>

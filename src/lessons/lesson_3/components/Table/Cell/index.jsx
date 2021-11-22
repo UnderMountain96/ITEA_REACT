@@ -1,9 +1,9 @@
-import React from 'react';
-import './style.scss'
+import React from "react";
+import "./style.scss";
 
 
 export const Cell = React.memo(({children, handler}) => {
-    console.log('render')
+    console.log("render");
     return (
             <div className='cell-memo'>
                 <input onChange={handler} className='cell-memo__input' type="text" value={children}/>
@@ -11,5 +11,5 @@ export const Cell = React.memo(({children, handler}) => {
     );
 }, (prev, next) =>
 {
-    return prev.children === next.children
+    return prev.children === next.children;
 });

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './style.scss'
+import React, {Component} from "react";
+import "./style.scss";
 
 
 export class Notification extends Component {

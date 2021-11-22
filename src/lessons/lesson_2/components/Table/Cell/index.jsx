@@ -1,78 +1,78 @@
-import React from 'react';
-import './style.scss'
+import React from "react";
+import "./style.scss";
 import classNames from "classnames";
 
 
 const DateCell = ({children, background, color, theme}) => {
     return <div style={{backgroundColor: background, color: color}}
-                className={classNames('cell date', theme)}>
+                className={classNames("cell date", theme)}>
         {children}
-    </div>
+    </div>;
 };
 
 DateCell.defaultProps = {
-    background: 'transparent',
-    color: 'blueviolet'
-}
+    background: "transparent",
+    color: "blueviolet"
+};
 
 const NumberCell = ({children, background, color, theme}) => {
     return <div style={{backgroundColor: background, color: color}}
-                className={classNames('cell number', theme)}>
+                className={classNames("cell number", theme)}>
         {children}
-    </div>
+    </div>;
 };
 
 NumberCell.defaultProps = {
-    background: 'transparent',
-    color: 'blue'
-}
+    background: "transparent",
+    color: "blue"
+};
 
 const MoneyCell = ({children, background, color, currency, theme}) => {
     const addCurrency = () => (
-            currency ? currency : console.log('currency empty')
-    )
+            currency ? currency : console.log("currency empty")
+    );
 
-    return <div style={{backgroundColor: background, color: currency ? color : 'red'}}
-                className={classNames('cell money', theme)}>
+    return <div style={{backgroundColor: background, color: currency ? color : "red"}}
+                className={classNames("cell money", theme)}>
         {children} {addCurrency()}
-    </div>
+    </div>;
 };
 
 MoneyCell.defaultProps = {
-    background: 'transparent',
-    color: 'green'
-}
+    background: "transparent",
+    color: "green"
+};
 
 const TextCell = ({children, background, color, theme}) => {
     return <div style={{backgroundColor: background, color: color}}
-                className={classNames('cell text', theme)}>
+                className={classNames("cell text", theme)}>
         {children}
-    </div>
+    </div>;
 };
 
 TextCell.defaultProps = {
-    background: 'transparent',
-    color: 'black'
-}
+    background: "transparent",
+    color: "black"
+};
 
 const types = [
-    {type: 'date', component: DateCell},
-    {type: 'number', component: NumberCell},
-    {type: 'money', component: MoneyCell},
-    {type: 'text', component: TextCell},
-    {type: 'default', component: TextCell}
+    {type: "date", component: DateCell},
+    {type: "number", component: NumberCell},
+    {type: "money", component: MoneyCell},
+    {type: "text", component: TextCell},
+    {type: "default", component: TextCell}
 ];
 
 export const Cell = (props) => {
     let subCell = types.find(cell => cell.type === props.type);
     if (subCell) {
-        return <subCell.component {...props}/>
+        return <subCell.component {...props}/>;
     } else {
-        return <TextCell {...props} />
+        return <TextCell {...props} />;
     }
-}
+};
 
 Cell.defaultProps = {
-    type: 'text',
+    type: "text",
     cells: 1,
-}
+};

@@ -1,5 +1,5 @@
-import React from 'react';
-import {useParams}        from 'react-router';
+import React from "react";
+import {useParams}        from "react-router";
 import {Rating} from "@lesson_5/components";
 import {useDataFetch}     from "@lesson_4/components";
 
@@ -15,7 +15,7 @@ export const Photo = () => {
                     !photo ?
                             <h3> Loading photo... </h3> :
                             <div>
-                                <h2 className={'photo__list__item-title'}><b>{photo.id}.</b> {photo.title}</h2>
+                                <h2 className={"photo__list__item-title"}><b>{photo.id}.</b> {photo.title}</h2>
                                 <Rating id={photo.id}/>
                                 <img height={600} src={photo.url} alt=""/>
                             </div>

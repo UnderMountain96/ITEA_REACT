@@ -9,7 +9,7 @@ const postsParser = (data) => (
             <p>{i.body}</p>
         </div>
     ))
-)
+);
 
 const commentsParser = (data) => (
     data.map((i) => (
@@ -22,7 +22,7 @@ const commentsParser = (data) => (
             </p>
         </div>
     ))
-)
+);
 
 const albumsParser = (data) => (
     data.map((i) => (
@@ -31,18 +31,18 @@ const albumsParser = (data) => (
             <p><b>{i.title}</b></p>
         </div>
     ))
-)
+);
 
 const todosParser = (data) => (
     data.map((i) => (
         <div key={uuidv4()}>
             <hr/>
             <p>
-                <b>{i.completed ? '✔' : '❌'} - {i.title}</b><br/>
+                <b>{i.completed ? "✔" : "❌"} - {i.title}</b><br/>
             </p>
         </div>
     ))
-)
+);
 
 const photosParser = (data) => (
     data.map((i) => (
@@ -52,21 +52,21 @@ const photosParser = (data) => (
             <img src={i.thumbnailUrl} alt={i.title}/>
         </div>
     ))
-)
+);
 
 const types = [
-    {type: 'posts', parser: postsParser},
-    {type: 'comments', parser: commentsParser},
-    {type: 'albums', parser: albumsParser},
-    {type: 'todos', parser: todosParser},
-    {type: 'photos', parser: photosParser}
+    {type: "posts", parser: postsParser},
+    {type: "comments", parser: commentsParser},
+    {type: "albums", parser: albumsParser},
+    {type: "todos", parser: todosParser},
+    {type: "photos", parser: photosParser}
 ];
 
 export const dataParse = ({type, posts}) => {
     let parser = types.find(parser => parser.type === type);
     if (parser) {
-        return parser.parser(posts)
+        return parser.parser(posts);
     } else {
-        return <></>
+        return <></>;
     }
-}
+};

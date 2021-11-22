@@ -1,4 +1,4 @@
-import React  from 'react';
+import React  from "react";
 import uniqid from "uniqid";
 
 
@@ -14,7 +14,7 @@ export const Comments = ({comments}) => {
                                 <h4>{comment.name}</h4>
                                 <p>{comment.body}</p>
                             </div>
-                    )
+                    );
                 })}
             </div>
     );

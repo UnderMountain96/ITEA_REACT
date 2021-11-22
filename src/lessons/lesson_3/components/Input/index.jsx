@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import {PropTypes} from "prop-types";
 import classNames from "classnames";
-import './style.scss'
+import "./style.scss";
 
 
 export const Input = ({name, type, placeholder, value, handler, contentLength, contentMaxLength, theme}) => {
@@ -10,7 +10,7 @@ export const Input = ({name, type, placeholder, value, handler, contentLength, c
                 <div className='input__label'>{name}</div>
 
                 <input
-                        className={classNames('input__field', {valid: value}, theme)}
+                        className={classNames("input__field", {valid: value}, theme)}
                         type={type}
                         placeholder={placeholder}
                         value={value}
@@ -33,9 +33,9 @@ export const Input = ({name, type, placeholder, value, handler, contentLength, c
 
 Input.propTypes = {
     type: PropTypes.oneOf([
-        'text',
-        'password',
-        'number'
+        "text",
+        "password",
+        "number"
     ]).isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.oneOfType([
@@ -45,4 +45,4 @@ Input.propTypes = {
     handler: PropTypes.func.isRequired,
     contentLength: PropTypes.bool,
     contentMaxLength: PropTypes.number
-}
+};

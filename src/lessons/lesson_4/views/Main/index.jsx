@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Task1, Task2, Task3, Task4} from "@lesson_4/views";
+import React, {Component} from "react";
+import {Task1, Task2, Task3, Task4} from "@lessons/lesson_4/views";
 
 
 export class Main extends Component {

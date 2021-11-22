@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Task1} from "@lesson_5/views";
-import '../../styles/commo.scss'
+import React, {Component} from "react";
+import {Task1} from "@lessons/lesson_5/views";
+import "../../styles/commo.scss";
 
 
 export class Main extends Component {

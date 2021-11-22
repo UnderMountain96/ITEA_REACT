@@ -13,17 +13,17 @@ import {Users} from "./components/Users/Users";
 import {User} from "./components/User/User";
 
 
-const basename = '/lesson/5'
+const basename = "/lesson/5";
 
 const routes = [
     {
-        title: 'Home',
+        title: "Home",
         path: `${basename}/`,
         component: Home,
         exact: true,
     },
     {
-        title: 'Users',
+        title: "Users",
         path: `${basename}/users`,
         component: Users,
         exact: true
@@ -54,7 +54,7 @@ const routes = [
         exact: true
     },
     {
-        title: 'Posts',
+        title: "Posts",
         path: `${basename}/posts`,
         component: Posts,
         exact: true
@@ -70,19 +70,19 @@ const routes = [
         exact: true
     },
     {
-        title: 'Random post',
+        title: "Random post",
         path: `${basename}/randomPost`,
         component: RandomPost,
         exact: true
     },
     {
-        title: 'About',
+        title: "About",
         path: `${basename}/about`,
         component: About,
         exact: true
     },
     {
-        title: 'Contacts',
+        title: "Contacts",
         path: `${basename}/contacts`,
         component: Contacts,
         exact: true

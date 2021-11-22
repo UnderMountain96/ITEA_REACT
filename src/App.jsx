@@ -1,7 +1,7 @@
-import React, {Component}                    from 'react';
+import React, {Component}                    from "react";
 import {HashRouter, Switch, Route, Redirect} from "react-router-dom";
 import {Header}                              from "@components";
-import routes                                from "./routes_map"
+import routes                                from "./routes_map";
 import uniqid                                from "uniqid";
 
 

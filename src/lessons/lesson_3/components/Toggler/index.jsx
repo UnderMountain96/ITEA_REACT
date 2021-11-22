@@ -1,12 +1,12 @@
-import React       from 'react'
+import React       from "react";
 import {PropTypes} from "prop-types";
-import './style.scss'
+import "./style.scss";
 import classNames  from "classnames";
 
 
 export const Toggler = ({name, children, action, activeState, id, theme}) => {
     return (
-            <div className={classNames('toggle', theme)}>
+            <div className={classNames("toggle", theme)}>
                 <b className='toggle__title'>{name}</b>
                 <div>
                     {
@@ -27,8 +27,8 @@ export const Toggler = ({name, children, action, activeState, id, theme}) => {
                     }
                 </div>
             </div>
-    )
-}
+    );
+};
 
 Toggler.propTypes = {
     id: PropTypes.string.isRequired,
@@ -36,4 +36,4 @@ Toggler.propTypes = {
     action: PropTypes.func.isRequired,
     activeState: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.element)
-}
+};

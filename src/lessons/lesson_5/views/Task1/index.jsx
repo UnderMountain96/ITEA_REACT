@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {Header}           from "@lesson_5/components";
 import {Route, Switch}    from "react-router-dom";
 import routes             from "../../routes_map";
-import uniqid             from 'uniqid';
+import uniqid             from "uniqid";
 
 
 export class Task1 extends Component {

@@ -1,7 +1,7 @@
-import React from 'react';
-import './style.scss'
+import React from "react";
+import "./style.scss";
 import PropTypes from "prop-types";
-import {v4 as uuidv4} from 'uuid';
+import {v4 as uuidv4} from "uuid";
 
 export const Button = ({text, style, action}) => {
 
@@ -10,8 +10,8 @@ export const Button = ({text, style, action}) => {
             id: uuidv4(),
             text: `click on ${text}`,
             color: style.backgroundColor
-        })
-    }
+        });
+    };
 
     return (
             <button className='custom-btn' style={style} onClick={clickHandler}>
@@ -21,12 +21,12 @@ export const Button = ({text, style, action}) => {
 };
 
 Button.defaultProps = {
-    text: 'default',
-    style: {backgroundColor: '#005eff'},
+    text: "default",
+    style: {backgroundColor: "#005eff"},
     action: () => {
-        console.log('default click')
+        console.log("default click");
     }
-}
+};
 
 Button.propTypes = {
     logger: PropTypes.func

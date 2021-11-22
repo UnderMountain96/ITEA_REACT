@@ -1,4 +1,4 @@
-import React        from 'react';
+import React        from "react";
 import {Link}       from "react-router-dom";
 import routes       from "../../routes_map";
 import {useHistory} from "react-router";
@@ -7,8 +7,8 @@ import {useHistory} from "react-router";
 export const Header = () => {
     const history = useHistory();
     const clickHandler = () => {
-        history.goBack()
-    }
+        history.goBack();
+    };
     return (
             <>
                 <ul className='header__list'>
@@ -26,14 +26,14 @@ export const Header = () => {
                                                 {route.title}
                                             </Link>
                                         </li>
-                                )
+                                );
                             }
-                            return null
+                            return null;
                         })
                     }
                 </ul>
-                <div style={{width: '100%'}}>
-                    <button onClick={clickHandler} className={'btn-l5'}>back</button>
+                <div style={{width: "100%"}}>
+                    <button onClick={clickHandler} className={"btn-l5"}>back</button>
                 </div>
             </>
     );

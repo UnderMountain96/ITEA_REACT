@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 import {Button} from "@lesson_2/components";
-import classNames from 'classnames';
-import './style.scss'
+import classNames from "classnames";
+import "./style.scss";
 
 
 const User = ({user, action}) => {
-    const {id, name, company, address, phone, email, interviewed} = user
+    const {id, name, company, address, phone, email, interviewed} = user;
 
     const clickHandler = () => {
-        action(id)
-    }
+        action(id);
+    };
 
     return (
-        <div className={classNames('user', {'interviewed': interviewed})}>
+        <div className={classNames("user", {"interviewed": interviewed})}>
             <div>
                 <b>{name}</b><br/>
                 Company: <b>{company.name}</b><br/>
@@ -23,11 +23,11 @@ const User = ({user, action}) => {
 
             <div>
                 <Button
-                    text={interviewed ? 'interviewed' : 'interview'}
+                    text={interviewed ? "interviewed" : "interview"}
                     style={{
-                        width: '200px',
-                        color: interviewed ? '#000000' : '#ffffff',
-                        backgroundColor: interviewed ? '#94c21e' : '#c61818'}}
+                        width: "200px",
+                        color: interviewed ? "#000000" : "#ffffff",
+                        backgroundColor: interviewed ? "#94c21e" : "#c61818"}}
                     action={clickHandler}
                     logger={function() {}}/><br/>
             </div>
