@@ -1,0 +1,13 @@
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-top: 10px;
+
+  &__text {
+    margin-right: 10px;
+    &-done {
+      text-decoration: line-through;
+    }
+  }
+}

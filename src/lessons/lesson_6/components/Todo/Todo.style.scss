@@ -1,0 +1,43 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  &__header {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__helper {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  &__input {
+    width: 300px;
+    margin-right: 10px;
+  }
+
+  &__btn {
+    width: 100px;
+    padding: 5px 10px;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+
+    &-add {
+      background: #0091ff;
+    }
+
+    &-delete {
+      background: #ff6200;
+    }
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+}
