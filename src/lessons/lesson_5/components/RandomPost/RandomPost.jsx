@@ -1,6 +1,6 @@
 import React          from "react";
 import {Redirect}     from "react-router-dom";
-import {useDataFetch} from "@lesson_4/components";
+import {useDataFetch} from "@lessons/lesson_4/components";
 
 
 export const RandomPost = () => {

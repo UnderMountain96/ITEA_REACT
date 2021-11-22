@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import LoaderImg from "@lesson_2/components/LoaderImg";
+import LoaderImg from "@lessons/lesson_2/components/LoaderImg";
 
 
 export class Task3 extends Component {

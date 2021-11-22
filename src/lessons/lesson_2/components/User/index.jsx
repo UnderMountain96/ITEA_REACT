@@ -1,5 +1,5 @@
-import React from "react";
-import {Button} from "@lesson_2/components";
+import React      from "react";
+import {Button}   from "@lessons/lesson_2/components";
 import classNames from "classnames";
 import "./style.scss";
 
@@ -27,9 +27,11 @@ const User = ({user, action}) => {
                     style={{
                         width: "200px",
                         color: interviewed ? "#000000" : "#ffffff",
-                        backgroundColor: interviewed ? "#94c21e" : "#c61818"}}
+                        backgroundColor: interviewed ? "#94c21e" : "#c61818"
+                    }}
                     action={clickHandler}
-                    logger={function() {}}/><br/>
+                    logger={function () {
+                    }}/><br/>
             </div>
         </div>
     );

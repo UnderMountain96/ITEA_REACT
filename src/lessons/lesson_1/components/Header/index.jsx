@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import './style.scss'
+import React, {Component} from "react";
+import "./style.scss";
 import Search from "./Search";
 import SearchButton from "./SearchButton";
 
 export class Header extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             hideSearch: false
-        }
+        };
     }
 
     onHideSearch = () => {
-        this.setState({'hideSearch': !this.state.hideSearch})
+        this.setState({"hideSearch": !this.state.hideSearch});
     }
 
     render() {

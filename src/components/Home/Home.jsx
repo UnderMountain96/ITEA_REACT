@@ -2,14 +2,14 @@ import React, {useState, useEffect} from "react";
 import {Markdown}                   from "react-marked-renderer";
 import "./Home.style.scss";
 import "github-markdown-css/github-markdown.css";
-import readmePath                   from "../../README.md";
 
 
 export const Home = () => {
     const [markdown, setMarkdown] = useState("");
 
     useEffect(() => {
-        // const readmePath = require("../../README.md");
+        // eslint-disable-next-line no-undef
+        const readmePath = require("../../README.md");
         fetch(readmePath.default)
             .then(response => {
                 return response.text();

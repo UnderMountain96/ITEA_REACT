@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Button} from "@lesson_2/components";
-import Notification from "@lesson_2/components/Notification";
+import React, {Component} from "react";
+import {Button} from "@lessons/lesson_2/components";
+import Notification from "@lessons/lesson_2/components/Notification";
 
 export class Task1 extends Component {
     state = {
@@ -13,7 +13,7 @@ export class Task1 extends Component {
                 msg,
                 ...this.state.massages
             ]
-        })
+        });
 
     }
 
@@ -24,7 +24,7 @@ export class Task1 extends Component {
     };
 
     render() {
-        const {compose, addMassages, state} = this
+        const {compose, addMassages, state} = this;
 
         return (
                 <>
@@ -33,29 +33,29 @@ export class Task1 extends Component {
                         <Button/>
 
                         <Button
-                                text={'damage'}
-                                style={{backgroundColor: '#B80000'}}
+                                text={"damage"}
+                                style={{backgroundColor: "#B80000"}}
                                 action={
-                                    compose(() => console.log('damage click'),
+                                    compose(() => console.log("damage click"),
                                             (msg) => addMassages(msg))
                                 }
                         />
 
                         <Button
-                                text={'agile'}
-                                style={{backgroundColor: '#18A200'}}
+                                text={"agile"}
+                                style={{backgroundColor: "#18A200"}}
                                 action={
-                                    compose(() => console.log('agile click'),
+                                    compose(() => console.log("agile click"),
                                             (msg) => addMassages(msg))
                                 }
                         />
 
                         <Button
-                                text={'magic'}
-                                style={{backgroundColor: '#6900a2'}}
+                                text={"magic"}
+                                style={{backgroundColor: "#6900a2"}}
 
                                 action={
-                                    compose(() => console.log('magic click'),
+                                    compose(() => console.log("magic click"),
                                             (msg) => addMassages(msg))
                                 }
                         />

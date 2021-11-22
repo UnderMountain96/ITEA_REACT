@@ -1,8 +1,8 @@
 import React          from "react";
 import {Link}         from "react-router-dom";
-import {Rating}       from "@lesson_5/components";
+import {Rating}       from "@lessons/lesson_5/components";
 import uniqid         from "uniqid";
-import {useDataFetch} from "@lesson_4/components";
+import {useDataFetch} from "@lessons/lesson_4/components";
 import {useParams}    from "react-router";
 
 
@@ -15,18 +15,18 @@ export const Photos = () => {
         <div className={"post__list"}>
             {
                 !posts ? <h2 className={"post__list-loading"}> Loading... </h2> :
-                        posts.map(post => (
-                                <div key={uniqid()} className={"post__list__item"}>
-                                    <h3 className={"post__list__item-title"}><b>{post.id}.</b> {post.title}</h3>
-                                    <Rating id={post.id}/>
-                                    <img height={150} src={post.thumbnailUrl} alt=""/>
-                                    <div>
-                                        <Link key={post.id} to={`/lesson/5/photos/${post.id}`}>
-                                            details...
-                                        </Link>
-                                    </div>
-                                </div>
-                        ))
+                    posts.map(post => (
+                        <div key={uniqid()} className={"post__list__item"}>
+                            <h3 className={"post__list__item-title"}><b>{post.id}.</b> {post.title}</h3>
+                            <Rating id={post.id}/>
+                            <img height={150} src={post.thumbnailUrl} alt=""/>
+                            <div>
+                                <Link key={post.id} to={`/lesson/5/photos/${post.id}`}>
+                                    details...
+                                </Link>
+                            </div>
+                        </div>
+                    ))
             }
         </div>
     </>);

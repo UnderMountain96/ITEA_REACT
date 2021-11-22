@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import uniqid                       from "uniqid";
 import {Link}                       from "react-router-dom";
 import {useHistory, useParams}      from "react-router";
-import {Selector, SelectorItem}     from "@lesson_4/components";
+import {Selector, SelectorItem}     from "@lessons/lesson_4/components";
 
 
 export const Posts = () => {
@@ -33,7 +33,7 @@ export const Posts = () => {
                 .then(res => setPost(res));
     }, [limit, setPost, usersid]);
 
-    const handlerSelector = ({value}) => _ => {
+    const handlerSelector = ({value}) => () => {
         setSelector(value);
         history.push(`/lesson/5/posts/limit/${value}`);
     };

@@ -34,7 +34,7 @@ export const Rating = ({id}) => {
     }, [id, rating]);
 
 
-    const clickHandler = (value) => (e) => {
+    const clickHandler = (value) => () => {
         setRating(value);
     };
 

@@ -5,14 +5,14 @@ import {PropTypes} from "prop-types";
 
 export const SelectorDrop = ({children, value, action, btnRef}) => {
     return (
-            <button
-                    ref={btnRef}
-                    className={classNames("selector__item drop")}
-                    type="button"
-                    onClick={action}
-            >
-                {children || value} ▼
-            </button>
+        <button
+            ref={btnRef}
+            className={classNames("selector__item drop")}
+            type="button"
+            onClick={action}
+        >
+            {children || value} ▼
+        </button>
     );
 };
 

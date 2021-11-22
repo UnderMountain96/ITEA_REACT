@@ -1,8 +1,8 @@
-import React from "react";
+import React, {memo} from "react";
 import "./style.scss";
 
 
-export const Cell = React.memo(({children, handler}) => {
+export const Cell = memo(({children, handler}) => {
     console.log("render");
     return (
             <div className='cell-memo'>
@@ -13,3 +13,5 @@ export const Cell = React.memo(({children, handler}) => {
 {
     return prev.children === next.children;
 });
+
+Cell.displayName = "Cell";

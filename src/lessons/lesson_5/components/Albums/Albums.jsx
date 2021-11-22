@@ -1,7 +1,7 @@
 import React          from "react";
 import uniqid         from "uniqid";
 import {Link}         from "react-router-dom";
-import {useDataFetch} from "@lesson_4/components";
+import {useDataFetch} from "@lessons/lesson_4/components";
 
 
 export const Albums = () => {

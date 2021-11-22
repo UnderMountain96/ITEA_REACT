@@ -3,7 +3,7 @@ import {
     JSONPlaceholder,
     Selector,
     SelectorItem
-}                        from "@lesson_4/components";
+}                        from "@lessons/lesson_4/components";
 import {v4 as uuidv4}    from "uuid";
 import "./UseEffectComponents.style.scss";
 
@@ -11,12 +11,12 @@ import "./UseEffectComponents.style.scss";
 export const UseEffectComponents = () => {
     const [limit, setLimit] = useState(10);
     const [selector, setSelector] = useState(
-            {
-                id: uuidv4(),
-                activeState: "10",
-                name: "Limit",
-                items: ["10", "20", "30", "50", "100"]
-            }
+        {
+            id: uuidv4(),
+            activeState: "10",
+            name: "Limit",
+            items: ["10", "20", "30", "50", "100"]
+        }
     );
 
     const urls = [
@@ -49,7 +49,7 @@ export const UseEffectComponents = () => {
         return urls.splice(randomIndex, 1)[0];
     };
 
-    const handlerSelector = ({value}) => _ => {
+    const handlerSelector = ({value}) => () => {
         setSelector({
             ...selector,
             activeState: value
@@ -58,15 +58,15 @@ export const UseEffectComponents = () => {
     };
 
     return (
-            <>
-                <Selector {...selector} action={handlerSelector}>
-                    {selector.items.map(item => <SelectorItem key={uuidv4()} value={item}/>)}
-                </Selector>
-                <div className={"UseEffectColumns"}>
-                    <JSONPlaceholder data={randomUrl()}/>
-                    <JSONPlaceholder data={randomUrl()}/>
-                    <JSONPlaceholder data={randomUrl()}/>
-                </div>
-            </>
+        <>
+            <Selector {...selector} action={handlerSelector}>
+                {selector.items.map(item => <SelectorItem key={uuidv4()} value={item}/>)}
+            </Selector>
+            <div className={"UseEffectColumns"}>
+                <JSONPlaceholder data={randomUrl()}/>
+                <JSONPlaceholder data={randomUrl()}/>
+                <JSONPlaceholder data={randomUrl()}/>
+            </div>
+        </>
     );
 };

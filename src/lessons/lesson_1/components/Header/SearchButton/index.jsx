@@ -1,6 +1,6 @@
 import React, {Component} from "react";
+import search_img from "@lessons/lesson_1/assets/search.svg";
 import "./style.scss";
-import search_img from "@lesson_1/assets/search.svg";
 
 
 class SearchButton extends Component {

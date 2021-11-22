@@ -1,27 +1,27 @@
 import React, {useState, useEffect}  from "react";
-import {Input, Toggler, TogglerItem} from "@lesson_3/components";
-import {Button}                      from "@lesson_2/components";
-import {v4 as uuidv4}                         from "uuid";
-import {Selector, SelectorItem} from "@lesson_4/components";
+import {Input, Toggler, TogglerItem} from "@lessons/lesson_3/components";
+import {Button}                      from "@lessons/lesson_2/components";
+import {Selector, SelectorItem}      from "@lessons/lesson_4/components";
+import {v4 as uuidv4}                from "uuid";
 
 
 export const ControlledForm = () => {
     const [stack, setStack] = useState([]);
     const [selector, setSelector] = useState(
-            {
-                id: uuidv4(),
-                activeState: "select city",
-                name: "City",
-                items: ["select city", "Kyiv", "Lviv", "Harkiv", "Odesa"]
-            }
+        {
+            id: uuidv4(),
+            activeState: "select city",
+            name: "City",
+            items: ["select city", "Kyiv", "Lviv", "Harkiv", "Odesa"]
+        }
     );
     const [toggler, setToggler] = useState(
-            {
-                id: uuidv4(),
-                activeState: "",
-                name: "Type",
-                items: ["Free", "Standard", "Premium"],
-            }
+        {
+            id: uuidv4(),
+            activeState: "",
+            name: "Type",
+            items: ["Free", "Standard", "Premium"],
+        }
     );
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -31,7 +31,6 @@ export const ControlledForm = () => {
         setToggler({...toggler, activeState: ""});
         setUsername("");
         setEmail("");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stack]);
 
     const handlerUsername = (e) => setUsername(e.target.value.trim());
@@ -40,14 +39,14 @@ export const ControlledForm = () => {
         setEmail(e.target.value.trim());
     };
 
-    const handlerSelector = ({value}) => _ => {
+    const handlerSelector = ({value}) => () => {
         setSelector({
             ...selector,
             activeState: value
         });
     };
 
-    const handlerToggler = ({value}) => _ => {
+    const handlerToggler = ({value}) => () => {
         setToggler({
             ...toggler,
             activeState: value,
@@ -56,13 +55,13 @@ export const ControlledForm = () => {
 
     const result = (data) => {
         return (
-                <div key={data.id}>
-                    <hr/>
-                    <p>Username: <b>{data.username}</b></p>
-                    <p>Email: <b>{data.email}</b></p>
-                    <p>City: <b>{data.city}</b></p>
-                    <p>Type: <b>{data.type}</b></p>
-                </div>
+            <div key={data.id}>
+                <hr/>
+                <p>Username: <b>{data.username}</b></p>
+                <p>Email: <b>{data.email}</b></p>
+                <p>City: <b>{data.city}</b></p>
+                <p>Type: <b>{data.type}</b></p>
+            </div>
         );
     };
 
@@ -99,23 +98,23 @@ export const ControlledForm = () => {
     };
 
     return (
+        <div>
+            <Input type={"text"} placeholder={"UserName"} handler={handlerUsername} value={username}/>
+            <Input type={"text"} placeholder={"Email"} handler={handlerEmail} value={email}/>
+
+            <Selector {...selector} action={handlerSelector}>
+                {selector.items.map(item => <SelectorItem key={uuidv4()} value={item}/>)}
+            </Selector>
+
+            <Toggler {...toggler} action={handlerToggler}>
+                {toggler.items.map(item => <TogglerItem key={uuidv4()} value={item}/>)}
+            </Toggler>
+
+            <Button text={"Enter"} style={{width: "-webkit-fill-available"}} action={onSubmit}/>
+
             <div>
-                <Input type={"text"} placeholder={"UserName"} handler={handlerUsername} value={username}/>
-                <Input type={"text"} placeholder={"Email"} handler={handlerEmail} value={email}/>
-
-                <Selector {...selector} action={handlerSelector}>
-                    {selector.items.map(item => <SelectorItem key={uuidv4()} value={item}/>)}
-                </Selector>
-
-                <Toggler {...toggler} action={handlerToggler}>
-                    {toggler.items.map(item => <TogglerItem key={uuidv4()} value={item}/>)}
-                </Toggler>
-
-                <Button text={"Enter"} style={{width: "-webkit-fill-available"}} action={onSubmit}/>
-
-                <div>
-                    {stack.map(data => result(data))}
-                </div>
+                {stack.map(data => result(data))}
             </div>
+        </div>
     );
 };

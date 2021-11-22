@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {ThemeContext} from './theme-context'
-import {ChangeTheme} from "@lesson_4/components";
+import React, {Component} from "react";
+import {ThemeContext}     from "./theme-context";
+import {ChangeTheme}      from "@lessons/lesson_4/components";
 
 export class Task2 extends Component {
     state = {
-        theme: 'light'
+        theme: "light"
     }
 
     changeTheme = (theme) => {
@@ -16,12 +16,12 @@ export class Task2 extends Component {
         const {changeTheme} = this;
 
         return (
-                <>
-                    <h1>Task 2</h1>
-                    <ThemeContext.Provider value={{theme, changeTheme}}>
-                        <ChangeTheme/>
-                    </ThemeContext.Provider>
-                </>
+            <>
+                <h1>Task 2</h1>
+                <ThemeContext.Provider value={{theme, changeTheme}}>
+                    <ChangeTheme/>
+                </ThemeContext.Provider>
+            </>
         );
     }
 }
