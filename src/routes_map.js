@@ -1,8 +1,16 @@
 // import {Home, NotFound} from '@components' // NOT WORK!!!
 // import {Home, NotFound} from './components' // NOT WORK!!!
-import {Home}                                                 from "@components/Home/Home";
-import {NotFound}                                             from "@components/NotFound/NotFound";
-import {Lesson1, Lesson2, Lesson3, Lesson4, Lesson5, Lesson6} from "./lessons";
+import {Home}     from "@components/Home/Home";
+import {NotFound} from "@components/NotFound/NotFound";
+import {
+    Lesson1,
+    Lesson2,
+    Lesson3,
+    Lesson4,
+    Lesson5,
+    Lesson6,
+    Lesson7
+}                 from "./lessons";
 
 
 const routes = [
@@ -46,6 +54,12 @@ const routes = [
         title: "Lesson 6",
         path: "/lesson/6",
         component: Lesson6,
+        exact: false,
+    },
+    {
+        title: "Lesson 7",
+        path: "/lesson/7",
+        component: Lesson7,
         exact: false,
     },
     {
