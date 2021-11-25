@@ -1,14 +1,15 @@
-import {GET_POSTS}    from "../constants";
+import {GET_POSTS, PROMISE, SET_ERROR, SET_LOADED, SET_LOADING} from "../constants";
 
 
-export const getPosts = ({start, limit}) => {
-    fetch(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${limit}`)
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
-            return {
-                type: GET_POSTS,
-                payload: res
-            };
-        });
+export const getPosts = ({dispatch, start, limit}) => {
+    dispatch({
+        type: PROMISE,
+        actions: [
+            SET_LOADING,
+            SET_LOADED,
+            SET_ERROR,
+            GET_POSTS
+        ],
+        promise: fetch(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${limit}`)
+    });
 };

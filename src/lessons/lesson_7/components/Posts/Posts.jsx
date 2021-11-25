@@ -3,6 +3,7 @@ import {useDispatch, useSelector}                from "react-redux";
 import uniqid                                    from "uniqid";
 import {getPostData, getPostLimit, getPostStart} from "../../selectors";
 import {getPosts}                                from "@lessons/lesson_7/actions";
+import {Post}                                    from "@lessons/lesson_7/components";
 
 
 export const Posts = () => {
@@ -12,13 +13,13 @@ export const Posts = () => {
     const limit = useSelector(getPostLimit);
 
     useEffect(() => {
-        dispatch(getPosts({start, limit}));
-    });
+        getPosts({dispatch, start, limit});
+    }, [dispatch]);
 
     return (
         <div>
             {
-                posts ? posts.map((post) => (<div key={uniqid()}>{post.title}</div>)) : <></>
+                posts ? posts.map((post) => (<Post key={uniqid()} post={post}/>)) : <></>
             }
         </div>
     );

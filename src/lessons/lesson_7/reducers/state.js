@@ -4,24 +4,32 @@ import {
 
 
 const initState = {
+    loaded: false,
     loading: false,
-    error: ""
+    errors: [],
 };
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case SET_LOADING:
-            return {
-                ...action.payload
-            };
+            return ({
+                ...state,
+                loaded: false,
+                loading: true
+            });
         case SET_LOADED:
-            return {
-                ...action.payload
-            };
+            return ({
+                ...state,
+                loaded: true,
+                loading: false
+            });
         case SET_ERROR:
-            return {
-                ...action.payload
-            };
+            return ({
+                ...state,
+                loaded: false,
+                loading: false,
+                errors: [...state.errors, action.payload]
+            });
         default:
             return state;
     }

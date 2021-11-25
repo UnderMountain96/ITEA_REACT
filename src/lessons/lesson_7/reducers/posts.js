@@ -14,8 +14,8 @@ const reducer = (state = initState, action) => {
         case GET_POSTS:
             return {
                 ...state,
-                start: state + action.payload.length,
-                data: [...state.data, action.payload]
+                start: state.start + action.payload.length,
+                data: [...state.data, ...action.payload]
             };
         default:
             return state;
