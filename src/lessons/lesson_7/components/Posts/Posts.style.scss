@@ -1,0 +1,50 @@
+.posts-l7 {
+  display: flex;
+  font-weight: bold;
+  padding: 20px;
+  border-top: 1px solid black;
+
+  &:last-child {
+    border-bottom: 1px solid black;
+  }
+
+  &__loadMore {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    color: #38b4e9;
+    cursor: pointer;
+
+    &:hover {
+      color: #387fe9;
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    margin: 0 10px;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__link {
+    margin-left: auto;
+
+    > a {
+      color: #38b4e9;
+      text-decoration: none;
+
+      &:hover {
+        color: #387fe9;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+

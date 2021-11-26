@@ -1,18 +1,23 @@
 import {
-    GET_USERS
+    GET_USER
 } from "../constants";
 
 
 const initState = {
     data: [],
+    state: {
+        loaded: false,
+        loading: false,
+        errors: []
+    }
 };
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
-        case GET_USERS:
+        case GET_USER:
             return {
                 ...state,
-                data: [...state.data, action.payload]
+                data: {...action.payload}
             };
         default:
             return state;

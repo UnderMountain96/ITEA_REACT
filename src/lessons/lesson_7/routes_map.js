@@ -1,23 +1,24 @@
-import React                            from "react";
-import {Posts}                          from "./components";
-import {NotFound}                       from "@lessons/lesson_5/components";
+import React         from "react";
+import {Posts, Post} from "./components";
+import {NotFound}    from "@lessons/lesson_5/components";
 
 
 const basename = "/lesson/7";
 
 const routes = [
     {
+        title: "Posts",
         path: `${basename}/`,
         children: <Posts/>,
         exact: true,
     },
     {
-        path: `${basename}/post`,
-        children: <Posts/>,
+        path: `${basename}/post/:postid`,
+        children: <Post/>,
         exact: true,
     },
     {
-        path: `${basename}/user`,
+        path: `${basename}/user/:userid`,
         children: <Posts/>,
         exact: true
     },

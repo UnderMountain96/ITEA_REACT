@@ -1,13 +1,15 @@
 import {combineReducers} from "redux";
-import state             from "./state";
+import comments          from "./comments";
+import post              from "./post";
 import posts             from "./posts";
-import users             from "./users";
+import user             from "./user";
 
 
 const reducer = combineReducers({
-    state,
+    comments,
+    post,
     posts,
-    users
+    user
 });
 
 export default reducer;

@@ -36,7 +36,7 @@ export const Albums = () => {
                                             return false;
                                         })}
                                 </Link><br/>
-                                <Link key={post.id} to={`/lesson/5/albums/${post.id}/photos`}>
+                                <Link key={uniqid()} to={`/lesson/5/albums/${post.id}/photos`}>
                                     details...
                                 </Link>
                             </div>

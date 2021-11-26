@@ -1,10 +1,6 @@
 import {
-    GET_POSTS,
-    LOADING_POSTS,
-    LOADED_POSTS,
-    ERROR_POSTS,
-    CLEAR_POSTS
-} from "@lessons/lesson_7/constants";
+    LOADING_POST, LOADED_POST, ERROR_POST, GET_POST
+} from "../constants";
 
 
 const initState = {
@@ -18,17 +14,12 @@ const initState = {
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
-        case GET_POSTS:
+        case GET_POST:
             return {
                 ...state,
-                data: [...state.data, ...action.payload]
+                data: action.payload
             };
-        case CLEAR_POSTS:
-            return {
-                ...state,
-                data: [],
-            };
-        case LOADING_POSTS:
+        case LOADING_POST:
             return ({
                 ...state,
                 state: {
@@ -37,7 +28,7 @@ const reducer = (state = initState, action) => {
                     loading: true
                 }
             });
-        case LOADED_POSTS:
+        case LOADED_POST:
             return ({
                 ...state,
                 state: {
@@ -46,7 +37,7 @@ const reducer = (state = initState, action) => {
                     loading: false
                 }
             });
-        case ERROR_POSTS:
+        case ERROR_POST:
             return ({
                 ...state,
                 state: {
