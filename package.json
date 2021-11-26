@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://undermountain96.github.io/ITEA_REACT",
+  "proxy": "http://localhost:4500",
   "scripts": {
     "start": "craco start",
     "build": "craco build",

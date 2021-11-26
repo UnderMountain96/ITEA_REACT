@@ -9,7 +9,8 @@ import {
     Lesson4,
     Lesson5,
     Lesson6,
-    Lesson7
+    Lesson7,
+    Lesson9
 }                 from "./lessons";
 
 
@@ -60,6 +61,12 @@ const routes = [
         title: "Lesson 7",
         path: "/lesson/7",
         component: Lesson7,
+        exact: false,
+    },
+    {
+        title: "Lesson 9",
+        path: "/lesson/9",
+        component: Lesson9,
         exact: false,
     },
     {

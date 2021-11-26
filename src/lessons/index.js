@@ -5,3 +5,4 @@ export {Main as Lesson4} from "./lesson_4/views/Main";
 export {Main as Lesson5} from "./lesson_5/views/Main";
 export {Main as Lesson6} from "./lesson_6/views/Main";
 export {Main as Lesson7} from "./lesson_7/views/Main";
+export {Main as Lesson9} from "./lesson_9/views/Main";

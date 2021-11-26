@@ -14,7 +14,7 @@
 |5|done|[lesson 5](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_5 "GitHub lesson 5")|
 |6|done|[lesson 6](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_6 "GitHub lesson 6")|
 |7|done|[lesson 7](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_7 "GitHub lesson 7")|
-|8|||
-|9|||
+|8|-|-|
+|9|done|[lesson 9](https://github.com/UnderMountain96/ITEA_REACT/tree/master/src/lessons/lesson_9 "GitHub lesson 7")|
 |10|||
 |Final|||
