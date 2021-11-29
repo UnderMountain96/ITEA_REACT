@@ -188,7 +188,7 @@ const DATA = {
             "body": "Bu jeneratörün temel farkı onu ilk gerçek Lorem Ipsum jeneratörü yapıyor. 200'den fazla Latince sözcükten oluşan bir sözlük ve bir dizi cümle kalıbı kullanır - bu, anlamlı görünen bir Lorem Ipsum oluşturmanıza olanak tanır. Böylece, oluşturulan Lorem Ipsum tekrarları, şakaları, Latince'ye özgü olmayan kelimeleri vb. içermeyecektir."
         },
     ],
-    jp: [
+    ja: [
         {
             "userId": 1,
             "id": 1,
@@ -257,7 +257,7 @@ export const localizedData = async ctx => {
 
     const { locale } = ctx.params;
 
-    const supportedLocales = ["uk", "en", "tr", "jp"];
+    const supportedLocales = ["uk", "en", "tr", "ja"];
 
     if( !supportedLocales.some( loc => locale === loc ) ){
         ResponseService.error( ctx, "That locale does not supported");

@@ -4,6 +4,7 @@ import ResponseService from "../services/ResponseService";
 import { authMessages } from "../messages";
 
 const AuthMiddleware = async ( ctx, next ) => {
+    console.log(ctx);
 
     const token = ctx.request.headers[ AuthService.HEADER ];
 

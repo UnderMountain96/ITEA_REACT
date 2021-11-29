@@ -1,0 +1,17 @@
+.lang {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  &-btn {
+    border: none;
+    background: transparent;
+    color: #006fff;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+

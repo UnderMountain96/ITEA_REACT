@@ -3,7 +3,7 @@ import "./style.scss";
 import PropTypes from "prop-types";
 import {v4 as uuidv4} from "uuid";
 
-export const Button = ({text, style, action}) => {
+export const Button = ({text, style, action, disabled}) => {
 
     const clickHandler = () => {
         action({
@@ -14,7 +14,7 @@ export const Button = ({text, style, action}) => {
     };
 
     return (
-            <button className='custom-btn' style={style} onClick={clickHandler}>
+            <button className='custom-btn' style={style} onClick={clickHandler} disabled={disabled}>
                 {text}
             </button>
     );
