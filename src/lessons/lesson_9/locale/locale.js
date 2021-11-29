@@ -1,0 +1,60 @@
+export const dictionary = {
+    uk: {
+        "home": "Головна",
+        "login": "Увійти",
+        "logout": "Вийти",
+        "private": "Приватна",
+        "lang": "мова",
+        "email": "Електронна пошта",
+        "password": "Пароль",
+        "submit": "НАДІСЛАТИ",
+        "email.empty": "Електронна пошта пуста!",
+        "password.empty": "Пароль пустий!",
+        "authorization.success": "Успішна авторизація!",
+        "home.lorem": "Біль сам по собі дуже болючий Я відкрию дещо благословенному провини, що найбільш гідна відзнака болю — це її вправа, бо вони цього не знають, вони надають послуги, які надають, але чи обов’язково їм подобатиметься ціле, насолоди життя ?"
+    },
+    en: {
+        "home": "Home",
+        "login": "Login",
+        "logout": "Logout",
+        "private": "Private",
+        "lang": "lang",
+        "email": "Email",
+        "password": "Password",
+        "submit": "SUBMIT",
+        "email.empty": "Email empty!",
+        "password.empty": "Password empty!",
+        "authorization.success": "Success authorization!",
+        "home.lorem": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam beatae culpa dignissimos distinctio dolorum exercitationem, id nam nesciunt, officiis provident quaerat sed similique sint tenetur totam, vitae voluptatum?",
+    },
+    tr: {
+        "home": "Ev",
+        "login": "Giriş yapmak",
+        "logout": "Çıkış Yap",
+        "private": "Özel",
+        "lang": "dilim",
+        "email": "E-posta",
+        "password": "Parola",
+        "submit": "SUNMAK",
+        "email.empty": "E-posta boş!",
+        "password.empty": "Şifre boş!",
+        "authorization.success": "Başarı yetkilendirmesi!",
+        "home.lorem": "Acının kendisi çok fazla acıdır Mübarek kusura bir şey açıklayacağım, acının en değerli ayrımı onu uygulamaktır, çünkü bilmiyorlar, sağladıkları hizmetleri sağlıyorlar, ama bütünü, hayatın zevklerini sevmek zorundalar mı?"
+    },
+    ja: {
+        "home": "家",
+        "login": "ログイン",
+        "logout": "ログアウト",
+        "private": "プライベート",
+        "lang": "言語",
+        "email": "Eメール",
+        "password": "パスワード",
+        "submit": "参加する",
+        "email.empty": "メールが空です!",
+        "password.empty": "パスワードが空です!",
+        "authorization.success": "成功の承認!",
+        "home.lorem": "痛み自体はたくさんの痛みです私は祝福された過ちに何かを明らかにします、痛みの最も価値のある区別はそれを行使することです、彼らはそれを知らないので、彼らは彼らが提供するサービスを提供します、しかし彼らは全体のように、人生の喜びを好きになるはずです？",
+    }
+};
+
+export default dictionary;

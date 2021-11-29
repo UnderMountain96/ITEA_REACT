@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {Task1}            from "@lessons/lesson_9/views";
+
+import {Task1} from "@lessons/lesson_9/views";
 
 
 export class Main extends Component {

@@ -1,24 +1,27 @@
 import React, {useEffect, useState} from "react";
 import uniqid                       from "uniqid";
-import {useDispatch}                from "react-redux";
+import {useDispatch, useSelector}   from "react-redux";
+import {useIntl}                    from "react-intl";
 
 import {PrivateWrapper} from "@lessons/lesson_9/components";
 import config           from "@lessons/lesson_9/config";
 import privateAxios     from "@lessons/lesson_9/helpers/private.axios";
 import {changeLang}     from "@lessons/lesson_9/actions";
+import {getLang}        from "@lessons/lesson_9/selectors";
 
 import "./Private.style.scss";
 
 
 export const Private = () => {
+    const intl = useIntl();
     const dispatch = useDispatch();
-    const [language, setLanguage] = useState(config.defaultLang);
+    const lang = useSelector(getLang);
+    const [language, setLanguage] = useState(lang);
     const [local, setLocal] = useState([]);
 
     useEffect(() => {
         privateAxios.get(`/${language}/data`)
             .then(function (response) {
-                console.log(response);
                 setLocal(response.data.data);
             })
             .catch(function (error) {
@@ -27,7 +30,6 @@ export const Private = () => {
     }, [setLocal, language]);
 
     const clickHandler = (lang) => () => {
-        console.log(lang);
         setLanguage(lang);
         dispatch(changeLang(lang));
     };
@@ -35,10 +37,10 @@ export const Private = () => {
     return (
         <PrivateWrapper>
             <>
-                <h1>Private</h1>
+                <h1>{intl.formatMessage({id: "private"})}</h1>
                 <div>
                     <div className={"lang"}>
-                        lang:
+                        {intl.formatMessage({id: "lang"})}:
                         {
                             config.supportedLangs.map((lang) => (
                                 <button className={"lang-btn"} key={uniqid()}

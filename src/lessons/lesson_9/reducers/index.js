@@ -1,6 +1,7 @@
 import {combineReducers} from "redux";
-import common            from "./common";
-import notification      from "./notification";
+
+import common       from "./common";
+import notification from "./notification";
 
 
 const reducer = combineReducers({

@@ -11,7 +11,6 @@ export const PrivateWrapper = ({children}) => {
     useEffect(() => {
         privateAxios.get("/uk/data")
             .then(function (response) {
-                console.log(response);
                 if (response && response.status === 401) {
                     dispatch(addNotification({
                         message: response.data && response.data.message ? response.data.message : response.statusText,

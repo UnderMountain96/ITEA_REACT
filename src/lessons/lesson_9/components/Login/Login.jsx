@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch}     from "react-redux";
+import {useIntl}         from "react-intl";
 
 import {Input}                          from "@lessons/lesson_3/components";
 import {Button}                         from "@lessons/lesson_2/components";
@@ -10,6 +11,7 @@ import {configurateToken}               from "@lessons/lesson_9/helpers/private.
 
 
 export const Login = () => {
+    const intl = useIntl();
     const dispatch = useDispatch();
     const [credential, setCredential] = useState(
         {
@@ -28,9 +30,9 @@ export const Login = () => {
 
     const email =
         {
-            name: "Email",
+            name: intl.formatMessage({id: "email"}),
             type: "text",
-            placeholder: "Email",
+            placeholder: intl.formatMessage({id: "email"}),
             value: credential.email,
             contentLength: true,
             contentMaxLength: 20,
@@ -38,9 +40,9 @@ export const Login = () => {
         };
 
     const password = {
-        name: "Password",
+        name: intl.formatMessage({id: "password"}),
         type: "password",
-        placeholder: "Password",
+        placeholder: intl.formatMessage({id: "password"}),
         value: credential.password,
         contentLength: true,
         contentMaxLength: 20,
@@ -50,8 +52,8 @@ export const Login = () => {
     const submitHandler = () => {
         const {email, password} = credential;
         let msg = "";
-        if (!email.length) msg += "Email empty!\n";
-        if (!password.length) msg += "Password empty!";
+        if (!email.length) msg += intl.formatMessage({id: "email.empty"}) + "\n";
+        if (!password.length) msg += intl.formatMessage({id: "password.empty"});
         if (msg.length) {
             return dispatch(addNotification(
                 {
@@ -75,7 +77,7 @@ export const Login = () => {
                     password: ""
                 });
                 dispatch(addNotification({
-                    message: "Success authorization!",
+                    message: intl.formatMessage({id: "authorization.success"}),
                     status: SUCCESS
                 }));
                 dispatch(authenticated({auth: true, session: authorization}));
@@ -91,13 +93,13 @@ export const Login = () => {
     };
 
     const submit = {
-        text: "SUBMIT",
+        text: intl.formatMessage({id: "submit"}),
         action: submitHandler
     };
 
     return (
         <>
-            <h1>Login</h1>
+            <h1>{intl.formatMessage({id: "login"})}</h1>
             <Input {...email}/>
             <Input {...password}/>
             <Button {...submit} style={{backgroundColor: disabled ? "#888888" : "#18A200"}} disabled={disabled}/>
