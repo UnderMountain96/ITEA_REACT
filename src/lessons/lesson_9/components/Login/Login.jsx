@@ -5,7 +5,7 @@ import {useIntl}         from "react-intl";
 import {Input}                          from "@lessons/lesson_3/components";
 import {Button}                         from "@lessons/lesson_2/components";
 import {addNotification, authenticated} from "@lessons/lesson_9/actions";
-import {WARNING, ERROR, SUCCESS}        from "@lessons/lesson_9/constants";
+import {WARNING, ERROR, SUCCESS, INFO}  from "@lessons/lesson_9/constants";
 import authAxios                        from "@lessons/lesson_9/helpers/auth.axios";
 import {configurateToken}               from "@lessons/lesson_9/helpers/private.axios";
 
@@ -15,8 +15,8 @@ export const Login = () => {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState(
         {
-            email: "test@test.ua",
-            password: "11111111"
+            email: "",
+            password: ""
         }
     );
     const [disabled, setDisabled] = useState(false);
@@ -28,16 +28,15 @@ export const Login = () => {
         });
     };
 
-    const email =
-        {
-            name: intl.formatMessage({id: "email"}),
-            type: "text",
-            placeholder: intl.formatMessage({id: "email"}),
-            value: credential.email,
-            contentLength: true,
-            contentMaxLength: 20,
-            handler: handler("email")
-        };
+    const email = {
+        name: intl.formatMessage({id: "email"}),
+        type: "text",
+        placeholder: intl.formatMessage({id: "email"}),
+        value: credential.email,
+        contentLength: true,
+        contentMaxLength: 20,
+        handler: handler("email")
+    };
 
     const password = {
         name: intl.formatMessage({id: "password"}),
@@ -52,15 +51,26 @@ export const Login = () => {
     const submitHandler = () => {
         const {email, password} = credential;
         let msg = "";
-        if (!email.length) msg += intl.formatMessage({id: "email.empty"}) + "\n";
-        if (!password.length) msg += intl.formatMessage({id: "password.empty"});
-        if (msg.length) {
-            return dispatch(addNotification(
+        if (!email.length) {
+            msg += intl.formatMessage({id: "email.empty"});
+            dispatch(addNotification(
                 {
-                    message: msg,
+                    message: intl.formatMessage({id: "email.empty"}),
                     status: WARNING
                 }
             ));
+        }
+        if (!password.length) {
+            msg += intl.formatMessage({id: "password.empty"});
+            dispatch(addNotification(
+                {
+                    message: intl.formatMessage({id: "password.empty"}),
+                    status: WARNING
+                }
+            ));
+        }
+        if (msg.length) {
+            return;
         }
         setDisabled(true);
 
@@ -68,8 +78,7 @@ export const Login = () => {
             {
                 email,
                 password
-            }
-        )
+            })
             .then(function (response) {
                 const {authorization} = response.headers;
                 setCredential({
@@ -80,12 +89,17 @@ export const Login = () => {
                     message: intl.formatMessage({id: "authorization.success"}),
                     status: SUCCESS
                 }));
-                dispatch(authenticated({auth: true, session: authorization}));
+                dispatch(authenticated({auth: true, session: authorization, username: email}));
                 configurateToken(authorization);
+                dispatch(addNotification({
+                    message: intl.formatMessage({id: "welcome.messages"}, {username: email}),
+                    status: INFO
+                }));
             })
             .catch(function (error) {
+                console.log(error);
                 dispatch(addNotification({
-                    message: error.response.data && error.response.data.message ? error.response.data.message : error.message,
+                    message: intl.formatMessage({id: "user.notFound"}),
                     status: ERROR
                 }));
                 setDisabled(false);
@@ -93,8 +107,12 @@ export const Login = () => {
     };
 
     const submit = {
-        text: intl.formatMessage({id: "submit"}),
-        action: submitHandler
+        text: intl.formatMessage({id: "login"}),
+        action: submitHandler,
+        style: {
+            backgroundColor: disabled ? "#888888" : "#18A200",
+            width: "auto",
+        }
     };
 
     return (
@@ -102,7 +120,7 @@ export const Login = () => {
             <h1>{intl.formatMessage({id: "login"})}</h1>
             <Input {...email}/>
             <Input {...password}/>
-            <Button {...submit} style={{backgroundColor: disabled ? "#888888" : "#18A200"}} disabled={disabled}/>
+            <Button {...submit} disabled={disabled}/>
         </>
     );
 };

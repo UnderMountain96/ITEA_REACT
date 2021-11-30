@@ -5,13 +5,16 @@ import {useIntl}                       from "react-intl";
 
 import {basename}                     from "@lessons/lesson_9/routes_map";
 import {Home, Login, Private, Logout} from "@lessons/lesson_9/components";
-import {isAuthenticated}              from "@lessons/lesson_9/selectors";
+import {getUsername, isAuthenticated} from "@lessons/lesson_9/selectors";
 import {NotFound}                     from "@lessons/lesson_5/components";
 import {Notification}                 from "@lessons/lesson_6/components";
+
+import "./Main.style.scss";
 
 
 export const Main = () => {
     const intl = useIntl();
+    const username = useSelector(getUsername);
     const auth = useSelector(isAuthenticated);
 
     return (
@@ -37,7 +40,16 @@ export const Main = () => {
                                         {intl.formatMessage({id: "private"})}
                                     </Link>
                                 </li>
-                                <li className='header__list__item' style={{marginLeft: "auto"}}>
+                                {
+                                    !username ?
+                                        <></> :
+                                        (<li className='header__list__item' style={{marginLeft: "auto"}}>
+                                            <span className={"username"}>
+                                                {intl.formatMessage({id: "user"})}: {username}
+                                            </span>
+                                        </li>)
+                                }
+                                <li className='header__list__item'>
                                     <Link className='header__list__item__link' to={{pathname: `${basename}/logout`}}>
                                         {intl.formatMessage({id: "logout"})}
                                     </Link>

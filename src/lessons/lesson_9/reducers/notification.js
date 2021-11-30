@@ -1,16 +1,9 @@
 import {
-    ADD_NOTIFICATION, INFO, REMOVE_NOTIFICATION
-}             from "../constants";
-import uniqid from "uniqid";
+    ADD_NOTIFICATION, REMOVE_NOTIFICATION
+} from "../constants";
 
 const initState = {
-    data: [
-        {
-            id: uniqid(),
-            message: "Welcome user!",
-            status: INFO
-        }
-    ],
+    data: [],
 };
 
 const reducer = (state = initState, action) => {

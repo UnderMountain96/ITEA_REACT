@@ -52,10 +52,9 @@ export const Private = () => {
                         {
                             local.map((data) => (
                                 <div key={uniqid()}>
-                                    <h2>{data.id}. {data.title}</h2>
-                                    <p>
-                                        {data.body}
-                                    </p>
+                                    <h2>{intl.formatMessage({id: "title"})}: {data.title}</h2>
+                                    <h3>{intl.formatMessage({id: "author"})}: {data.id}</h3>
+                                    <p><b>{intl.formatMessage({id: "body"})}</b>: {data.body}</p>
                                 </div>
                             ))
                         }

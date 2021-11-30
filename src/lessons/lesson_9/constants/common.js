@@ -1,4 +1,5 @@
 export const AUTHENTICATED = "AUTHENTICATED";
+export const USERNAME = "USERNAME";
 export const SESSION = "SESSION";
 export const LANG = "LANG";
 export const PROMISE = "PROMISE";

@@ -7,7 +7,7 @@ import {authenticated} from "@lessons/lesson_9/actions";
 export const Logout = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(authenticated({auth: false, session: ""}));
+        dispatch(authenticated({auth: false, session: "", username: ""}));
     }, [dispatch]);
 
     return (
