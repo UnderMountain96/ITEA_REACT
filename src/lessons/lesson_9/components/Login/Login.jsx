@@ -98,10 +98,29 @@ export const Login = () => {
             })
             .catch(function (error) {
                 console.log(error);
-                dispatch(addNotification({
-                    message: intl.formatMessage({id: "user.notFound"}),
-                    status: ERROR
-                }));
+                console.log(error.response);
+                console.log(error.message);
+                if (error.response && error.response.status === 400) {
+                    if (error.response.data.message === "Почта введена не верно") {
+                        dispatch(addNotification({
+                            message: intl.formatMessage({id: "mail.incorrectly"}),
+                            status: ERROR
+                        }));
+                    }
+                    if (error.response.data.message === "Пользователь не найден") {
+                        dispatch(addNotification({
+                            message: intl.formatMessage({id: "user.notFound"}),
+                            status: ERROR
+                        }));
+                    }
+
+                } else {
+                    dispatch(addNotification({
+                        message: intl.formatMessage({id: "error.network"}),
+                        status: ERROR
+                    }));
+                }
+
                 setDisabled(false);
             });
     };
