@@ -3,11 +3,11 @@ import {Link, Route, Switch, Redirect} from "react-router-dom";
 import {useSelector}                   from "react-redux";
 import {useIntl}                       from "react-intl";
 
-import {basename}                     from "@lessons/lesson_9/routes_map";
-import {Home, Login, Private, Logout} from "@lessons/lesson_9/components";
-import {getUsername, isAuthenticated} from "@lessons/lesson_9/selectors";
-import {NotFound}                     from "@lessons/lesson_5/components";
-import {Notification}                 from "@lessons/lesson_6/components";
+import {basename}                                   from "@lessons/lesson_9/routes_map";
+import {Home, Login, Private, Logout, ChangeLocale} from "@lessons/lesson_9/components";
+import {getUsername, isAuthenticated}               from "@lessons/lesson_9/selectors";
+import {NotFound}                                   from "@lessons/lesson_5/components";
+import {Notification}                               from "@lessons/lesson_6/components";
 
 import "./Main.style.scss";
 
@@ -58,6 +58,9 @@ export const Main = () => {
                         )
                 }
             </ul>
+            <div style={{marginLeft: "auto"}}>
+                <ChangeLocale/>
+            </div>
             <Switch>
                 <Route exact path={`${basename}/`}>
                     <Home/>

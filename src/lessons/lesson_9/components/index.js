@@ -5,3 +5,4 @@ export * from "./Private/Private";
 export * from "./PrivateWrapper/PrivateWrapper";
 export * from "./LocalizationWrapper/LocalizationWrapper";
 export * from "./Main/Main";
+export * from "./ChangeLocale/ChangeLocale";
