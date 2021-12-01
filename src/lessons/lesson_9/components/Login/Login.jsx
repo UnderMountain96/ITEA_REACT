@@ -97,9 +97,6 @@ export const Login = () => {
                 }));
             })
             .catch(function (error) {
-                console.log(error);
-                console.log(error.response);
-                console.log(error.message);
                 if (error.response && error.response.status === 400) {
                     if (error.response.data.message === "Почта введена не верно") {
                         dispatch(addNotification({
