@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ITEA_REACT/static/css/main.89cc4ead.chunk.css",
-    "main.js": "/ITEA_REACT/static/js/main.45d6bd7e.chunk.js",
-    "main.js.map": "/ITEA_REACT/static/js/main.45d6bd7e.chunk.js.map",
+    "main.js": "/ITEA_REACT/static/js/main.f5f1667d.chunk.js",
+    "main.js.map": "/ITEA_REACT/static/js/main.f5f1667d.chunk.js.map",
     "runtime-main.js": "/ITEA_REACT/static/js/runtime-main.8192b0a7.js",
     "runtime-main.js.map": "/ITEA_REACT/static/js/runtime-main.8192b0a7.js.map",
     "static/css/2.0a680f46.chunk.css": "/ITEA_REACT/static/css/2.0a680f46.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.0a680f46.chunk.css",
     "static/js/2.8620fec2.chunk.js",
     "static/css/main.89cc4ead.chunk.css",
-    "static/js/main.45d6bd7e.chunk.js"
+    "static/js/main.f5f1667d.chunk.js"
   ]
 }
